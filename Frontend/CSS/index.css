@@ -6,19 +6,18 @@
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
 }
-div,
+
 section {
-  border: 1px solid black;
-}
-section {
-  padding: 20px 140px;
+  margin: 20px 180px;
 }
 .flex {
   display: flex;
 }
 a {
-  font-family: "Bad Script", cursive;
-  text-decoration: none;
+  text-decoration: none !important;
+}
+p {
+  margin: 0px !important;
 }
 
 .Introduction {
@@ -64,7 +63,170 @@ a {
   justify-content: space-around;
   align-items: center;
 }
+.LandCompanies > h1 {
+  font-size: 1.75rem;
+  padding: 20px 190px;
+}
 .LandCompaniesimgs > img {
   max-width: 200px;
   height: 32px;
+}
+.landingbuttons {
+  width: 40%;
+  transition: all 0.2s linear 0s;
+  gap: 8px;
+  font-weight: 600;
+  margin: 8px 10px;
+  border: 2px solid rgb(104, 129, 155);
+  border-radius: 8px;
+  padding: 8px 14px;
+  color: rgb(11, 53, 88);
+  cursor: pointer;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+}
+
+button {
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  outline: none;
+  appearance: none;
+}
+
+.landingbuttons:hover {
+  color: rgb(0, 107, 255);
+  border-color: rgb(0, 107, 255);
+  background-color: rgb(252, 250, 255);
+}
+/*? <!----------------------------------------------- < Main Section Styles > -----------------------------------------------> */
+
+.SecitonHeadOne {
+  font-size: 3.125rem;
+  font-weight: 600;
+  padding: 20px 140px;
+  text-align: center;
+}
+.SectionHeadTwo {
+  font-size: 2.36875rem;
+  line-height: 1.4;
+  font-weight: 600;
+  padding: 20px 160px;
+  text-align: center;
+}
+/*? <!----------------------------------------------- < Design section > -----------------------------------------------> */
+
+.sectionsTwo {
+  margin-top: 100px;
+}
+#TabSelectors {
+  display: flex;
+  justify-content: center;
+}
+#TabSelectors > div {
+  cursor: pointer;
+  margin: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 30px;
+
+  filter: brightness(0) saturate(100%) invert(36%) sepia(32%) saturate(581%)
+    hue-rotate(169deg) brightness(98%) contrast(89%) opacity(0.8);
+  border-bottom: 3.5px solid rgb(255, 255, 255);
+}
+
+#TabSelectors > div p {
+  color: rgb(71, 103, 136);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  font-weight: 700;
+}
+#TabSelectors > div img {
+  width: 30px;
+  margin: 5px;
+}
+.activeDesign {
+  border-bottom: 3.5px solid rgb(32, 103, 210) !important;
+  filter: brightness(0) saturate(100%) invert(39%) sepia(100%) saturate(5529%)
+    hue-rotate(209deg) brightness(103%) contrast(105%) !important;
+}
+
+#salestabbox {
+  display: flex;
+}
+#DesignTeamTabs {
+  min-height: 560px !important;
+}
+.DesignTeamTabsChild {
+  width: 100%;
+  padding: 70px;
+
+  display: none;
+  transition: all 1000ms ease-in-out;
+  justify-content: space-around;
+}
+
+.Designtabparas {
+  width: 55%;
+}
+.Designtabparas > div > div > h3 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: rgb(11, 53, 88);
+}
+.Designtabparas > div > div > p {
+  color: rgb(106, 102, 102);
+}
+.Designtabimgs {
+  width: 43%;
+}
+.designsmolicons {
+  padding: 13px;
+  padding-top: 0px;
+}
+#LearnMore {
+  font-size: 1.2rem;
+  margin: 20px 48px;
+  font-weight: 600;
+}
+/*? <!----------------------------------------------- < OneProfile > -----------------------------------------------> */
+
+#OneProfile {
+  background-color: rgb(247, 250, 255);
+  width: 100%;
+  margin: 0;
+  padding: 50px 0px;
+}
+#OneProfile > div {
+  margin: 20px 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#OneProfile > div > div {
+  width: 50%;
+}
+#oneprofileH1 {
+  color: rgb(11, 53, 88);
+  font-size: 1.5rem;
+}
+#oneprofileH3 {
+  font-size: 1.5rem;
+}
+.OneProfileRighet {
+  padding: 40px;
+}
+#Readmore {
+  font-size: 1.2rem;
+  margin: 20px 0px;
+  font-weight: 600;
 }
