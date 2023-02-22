@@ -6,6 +6,10 @@
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
 }
+html,
+body {
+  position: relative !important;
+}
 
 section {
   margin: 20px 180px;
@@ -19,7 +23,48 @@ a {
 p {
   margin: 0px !important;
 }
+/*? <!----------------------------------------------- < Navbar > -----------------------------------------------> */
 
+header {
+  box-shadow: rgb(0 0 0 / 4%) 0px 4px 4px;
+}
+#NavBrand {
+  filter: saturate(2) hue-rotate(20deg);
+}
+nav {
+  position: sticky;
+  top: 0px;
+  padding: 5px 140px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#NavlinkParent {
+  width: 60%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#NavlinkParent > div {
+  margin: 10px;
+  padding: 5px;
+}
+#NavlinkParent > div > a {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+#Englishtopnav {
+  padding: 6px 140px !important;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: rgb(247, 250, 255);
+  padding: 5px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+/*? <!----------------------------------------------- < FirstView > -----------------------------------------------> */
 .Introduction {
   font-size: 4.20875rem;
   line-height: 1.2;
@@ -39,6 +84,9 @@ p {
   flex-direction: row;
 }
 .LandRight {
+  width: 50%;
+}
+.LandLeft {
   width: 50%;
 }
 
