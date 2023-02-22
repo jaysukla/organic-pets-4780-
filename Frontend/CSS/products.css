@@ -33,7 +33,7 @@
   margin: 0px 0px 32px;
 
   font-size: 72px;
-  font-family: "Gilroy-Heavy";
+  font-family: "Gilroy-Medium", sans-serif;
   /* font-family:100px Gilroy, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; */
 }
 #cal {
@@ -529,6 +529,82 @@ img:hover {
   color: var(--blue);
   border: 1px solid var(--blue);
 }
+/* -------------------<design>---------------------- */
+/* .sectionsTwo {
+  margin-top: 100px;
+}
+#TabSelectors {
+  display: flex;
+  justify-content: center;
+}
+#TabSelectors > div {
+  cursor: pointer;
+  margin: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 30px;
+
+  filter: brightness(0) saturate(100%) invert(36%) sepia(32%) saturate(581%)
+    hue-rotate(169deg) brightness(98%) contrast(89%) opacity(0.8);
+  border-bottom: 3.5px solid rgb(255, 255, 255);
+}
+
+#TabSelectors > div p {
+  color: rgb(71, 103, 136);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  font-weight: 700;
+}
+#TabSelectors > div img {
+  width: 30px;
+  margin: 5px;
+}
+.activeDesign {
+  border-bottom: 3.5px solid rgb(32, 103, 210) !important;
+  filter: brightness(0) saturate(100%) invert(39%) sepia(100%) saturate(5529%)
+    hue-rotate(209deg) brightness(103%) contrast(105%) !important;
+}
+
+#salestabbox {
+  display: flex;
+}
+#DesignTeamTabs {
+  min-height: 560px !important;
+}
+.DesignTeamTabsChild {
+  width: 100%;
+  padding: 70px;
+
+  display: none;
+  transition: all 1000ms ease-in-out;
+  justify-content: space-around;
+}
+
+.Designtabparas {
+  width: 55%;
+}
+.Designtabparas > div > div > h3 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: rgb(11, 53, 88);
+}
+.Designtabparas > div > div > p {
+  color: rgb(106, 102, 102);
+}
+.Designtabimgs {
+  width: 43%;
+}
+.designsmolicons {
+  padding: 13px;
+  padding-top: 0px;
+}
+#LearnMore {
+  font-size: 1.2rem;
+  margin: 20px 48px;
+  font-weight: 600;
+} */
 @media (min-width: 300px) and (max-width: 900px) {
   #cont1 {
     display: flex;
@@ -589,5 +665,8 @@ img:hover {
   }
   #sector_10_P1 {
     font-size: 40px;
+  }
+  .secton_12{
+    flex-direction: column;
   }
 }
