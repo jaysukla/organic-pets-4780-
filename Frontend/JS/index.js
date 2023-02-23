@@ -82,13 +82,3 @@ Schlimg4.addEventListener("click", () => {
   ScAuImg.setAttribute("src", "Images/Home/scl4.jpg");
   Schlimg4.style.color = "rgb(11, 53, 88)";
 });
-
-let stickynav = document.getElementById("stickynav");
-const sticky = stickynav.offsetTop;
-window.onscroll = function () {
-  if (window.pageYOffset >= sticky) {
-    stickynav.classList.add("sticky");
-  } else {
-    stickynav.classList.remove("sticky");
-  }
-};

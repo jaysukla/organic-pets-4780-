@@ -8,37 +8,50 @@
   <title>Calendly</title>
   <link rel="stylesheet" href="CSS/index.css" />
   <link rel="stylesheet" href="CSS/index2.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"
-      defer></script>
 
-    <script src="JS/index.js" defer></script>
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"
+    defer></script>
+
+  <script src="JS/index.js" defer></script>
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 
 <body>
+
   <!--!--------------------------------------------- Header ----------------------------------------------->
   <header>
+    <script src="JS/Navbar.js" defer></script>
+    <link rel="stylesheet" href="CSS/Navbar.css">
+
     <div id="Englishtopnav">
-     <div> <img width="24px" src="Images/Icons/globe.svg" alt="">
-      <label for="">English</label>
-       <img width="24px" src="Images/Icons/down.svg" alt="">  </div>
+      <div> <img width="24px" src="Images/Icons/globe.svg" alt="">
+        <label for="">English</label>
+        <img width="24px" src="Images/Icons/down.svg" alt="">
+      </div>
     </div>
     <nav id="stickynav">
       <div id="NavBrand"><img width="200px" src="Images/Icons/MyCalBrand.png" alt=""></div>
       <div id="NavlinkParent">
-        <div><a class="nav-link" href="#">Products</a></div>
-        <div><a class="nav-link" href="#">Solutions</a></div>
-        <div><a class="nav-link" href="#">Teams & Companies</a></div>
-        <div><a class="nav-link" href="#">Pricing</a></div>
-        <div><a class="nav-link" href="#">Resources</a></div>
+        <div data-navclose><a class="nav-link" href="">Products</a></div>
+        <div data-navclose><a class="nav-link" href="">Solutions</a></div>
+        <div data-navclose><a class="nav-link" href="">Teams & Companies</a></div>
+        <div data-navclose><a class="nav-link" href="">Pricing</a></div>
+        <div data-navclose><a class="nav-link" href="">Resources</a></div>
       </div>
-      <div id="MyAccBtn"><button class="BlueWhiteBtn">My Account</button></div>
+      <div id="MyAccBtn" class="flex">
+        <button class="BlueWhiteBtn">My Account</button>
+        <button id="navclickbtn" data-navclose>
+          <svg data-navclose xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30">
+            <path data-navclose d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z" />
+          </svg>
+        </button>
+      </div>
     </nav>
-  </nav>
+    </nav>
 
   </header>
   <!--*--------------------------------------------- Main Body ----------------------------------------------->
@@ -46,7 +59,7 @@
     <section id="LandingPage">
       <div class="LandingParent" data-aos="fade-in">
         <div id="LandLeft" data-aos="fade-out">
-          <h1 class="Introduction" >
+          <h1 class="Introduction">
             Easy <br /><label>scheduling</label>
             <label style="color: rgb(0, 107, 255)">ahead</label>
           </h1>
@@ -76,7 +89,7 @@
         </div>
       </div>
       <div class="LandCompanies">
-        <h1 data-aos="fade-up" >
+        <h1 data-aos="fade-up">
           Simplified scheduling for more than
           <label style="color: rgb(0, 107, 255)">10,000,000</label><br> users
           worldwide
@@ -134,9 +147,9 @@
         </div>
       </div>
       <div id="DesignTeamTabs">
-        <div id="salestabbox" class="DesignTeamTabsChild" >
+        <div id="salestabbox" class="DesignTeamTabsChild">
           <div class="Designtabparas" data-aos="fade-right">
-            <div class="flex" >
+            <div class="flex">
               <div class="designsmolicons">
                 <img
                   src="https://images.ctfassets.net/k0lk9kiuza3o/6XYk0FVB5XgZq1VNWa3F6g/69c7c06005970e3afa4d837ff13da76a/Theme_Light__12_.svg"
@@ -185,13 +198,13 @@
             <br />
             <a href="" id="LearnMore">Learn More > </a>
           </div>
-          <div class="Designtabimgs"  data-aos="fade-left">
+          <div class="Designtabimgs" data-aos="fade-left">
             <img width="100%"
               src="https://images.ctfassets.net/k0lk9kiuza3o/2rG4thXSvKkcjfy96bmbWa/1d7cd9d16cc09fffcdea73cb6718479f/Calendly-Sales-Small-new.png?w=1140&h=955&q=85&fm=webp"
               alt="" />
           </div>
         </div>
-        <div id="marketingtabbox" class="DesignTeamTabsChild" >
+        <div id="marketingtabbox" class="DesignTeamTabsChild">
           <div class="Designtabparas">
             <div class="flex">
               <div class="designsmolicons">
@@ -301,7 +314,7 @@
               alt="" />
           </div>
         </div>
-        <div id="recrutingtabbox" class="DesignTeamTabsChild" >
+        <div id="recrutingtabbox" class="DesignTeamTabsChild">
           <div class="Designtabparas">
             <div class="flex">
               <div class="designsmolicons">
@@ -413,7 +426,7 @@
               alt="" />
           </div>
         </div>
-        <div id="edutabbox" class="DesignTeamTabsChild" >
+        <div id="edutabbox" class="DesignTeamTabsChild">
           <div class="Designtabparas">
             <div class="flex">
               <div class="designsmolicons">
@@ -480,7 +493,7 @@
         We make scheduling for you easier than ever
       </h1>
       <div class="WeMakeSchedule_Parent">
-        <div class="WeMakeSchedule_Chiled"  data-aos="fade-left" >
+        <div class="WeMakeSchedule_Chiled" data-aos="fade-left">
           <div>
             <h1 id="MakeYourItHead">
               Share your MyCal <br />
@@ -501,7 +514,7 @@
               alt="" />
           </div>
         </div>
-        <div class="WeMakeSchedule_Chiled"  data-aos="fade-right" >
+        <div class="WeMakeSchedule_Chiled" data-aos="fade-right">
           <div>
             <img width="100%"
               src="https://images.ctfassets.net/k0lk9kiuza3o/6XqS7MbsZB4a08zAUxOHde/033649d82a01b51bbc080b037aac0206/Calendly-Round-Robin.png?w=1140&h=931&q=85&fm=webp"
@@ -520,7 +533,7 @@
             <a href="" id="LearnMore">Learn More > </a>
           </div>
         </div>
-        <div class="WeMakeSchedule_Chiled"  data-aos="fade-left" >
+        <div class="WeMakeSchedule_Chiled" data-aos="fade-left">
           <div>
             <h1 id="MakeYourItHead">Hit Your Number</h1>
 
@@ -567,7 +580,7 @@
     </section>
     <!--todo--------------------------------------------- <SchedulingAutomation> ----------------------------------------------->
     <section id="SchedulingAutomation_Section" class="sectionTwo" data-aos="fade-up">
-      <h1 class="SectionHeadTwo" >
+      <h1 class="SectionHeadTwo">
         Scheduling automation happens before and after meetings
       </h1>
       <div class="SchedulingParent" data-aos="fade-right">
@@ -689,7 +702,76 @@
     </section>
   </main>
   <!--!--------------------------------------------- Footer ----------------------------------------------->
-  <footer></footer>
+  <footer>
+    <section id="footer">
+  <div class="footer_section">
+    <div class="footerLeft">
+      <h1 class="footereasy" >Easy <br> <label style="color: rgb(0, 107, 255);;" > ahead</label></h1>
+      <p >We take the work out of connecting with others so you can accomplish more.</p>
+      <br><br>
+      <input id="deliveryinp" type="number" placeholder="Enter Pincode"> <button class="BlueWhiteBtn">Check</button>
+      <br><br>
+      <img width="80%" src="Images/icons/footerlogos.jpg" alt="">
+      <br><br><br>
+      <img width="100%" src="Images/Icons/googleplay.png" alt="">
+    </div>
+    <div class="footerRight">
+      <div class="footerul">
+        <div> <b>About</b></div>
+        <div> About Calendly</div>
+        <div> Contact Us</div>
+        <div> Newsroom</div>
+        <div> Careers</div>
+        <div> Security</div>
+      </div>
+      <div class="footerul">
+        <div><b>Solutions</b></div>
+        <div> Customer Success</div>
+        <div> Sales</div>
+        <div> Recruiting</div>
+        <div> Information Technology</div>
+        <div> Marketing</div>
+
+      </div>
+      <div class="footerul">
+        <div><b> Popular Features</b></div>
+        <div> Availability</div>
+        <div> Team Scheduling</div>
+        <div> Embed Calendly</div>
+        <div> Workflows</div>
+        <div> Admin Management</div>
+      </div>
+      <div class="footerul">
+        <div><b>Support</b></div>
+        <div>Help Center</div>
+        <div>Video Tutorials</div>
+        <div>Cookie Settings</div>
+      </div>
+      <div class="footerul">
+        <div> <b>Add-Ons</b></div>
+        <div> Download for Chrome</div>
+        <div> Download for Firefox</div>
+      </div>
+      <div class="footerul">
+        <div> <b>Developers</b></div>
+        <div> Developer Tools</div>
+      </div>
+    </div>
+  </div>
+      <div>
+        <div class="footersecond" >
+          <label for="">Copyright Calendly 2023</label>
+          <label for="">Privacy / Terms and Conditions</label>
+        </div>
+        <div class="footerthird">
+        <b>  Also of interest</b>
+          <label for=""> Free Scheduling Tool for Individuals</label>
+          <label for=""> Scheduling for Small and Large Teams</label>
+          <label for=""> Calendar Connections</label>
+        </div>
+      </div>
+    </section>
+  </footer>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
