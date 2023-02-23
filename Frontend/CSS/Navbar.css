@@ -76,9 +76,103 @@ nav {
   color: white;
 }
 
+/*? <!----------------------------------------------- < Header End > -----------------------------------------------> */
+
+/*todo <!----------------------------------------------- < Footer Start > -----------------------------------------------> */
+.footereasy {
+  font-size: 2.36875rem;
+  line-height: 1.4;
+  font-weight: 700;
+  text-align: left;
+  color: rgb(11, 53, 88);
+  padding-bottom: 16px;
+}
+.footereasy + p {
+  font-size: 1.125rem;
+}
+.footer_section {
+  display: flex;
+  justify-content: space-between;
+}
+.footersecond {
+  display: flex;
+  justify-content: space-between;
+}
+.footersecond > label,
+.footerthird > label,
+.footerthird > b {
+  margin: 7px;
+  color: rgb(71, 103, 136);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+.footerthird {
+  display: flex;
+  justify-content: left;
+}
+#deliveryinp {
+  padding: 10px 5px;
+  border-radius: 5px;
+  outline: none;
+  border: 0.25px solid grey;
+}
+
+#deliveryinp + button {
+  padding: 7px 10px !important;
+  font-size: 15px;
+  border-radius: 5px;
+}
+.footerLeft {
+  width: 30%;
+}
+
+.footerRight {
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.footerRight div {
+  padding: 10px;
+  color: rgb(11, 53, 88);
+  font-size: 1rem;
+}
+.footerRight div:hover {
+  color: rgb(0, 107, 255);
+  cursor: pointer;
+}
+
+/*? <!----------------------------------------------- < Footer End > -----------------------------------------------> */
+
+/*! <!----------------------------------------------- < Media Queries > -----------------------------------------------> */
+
+/*todo ----------------------------Medium Screen Sizes -------------------------------- */
+@media all and (min-width: 810px) and (max-width: 1079px) {
+  body {
+    overflow-x: hidden;
+  }
+  section {
+    margin: 10px !important;
+    padding: 10px !important;
+  }
+  nav {
+    padding: 10px 20px !important;
+  }
+  #NavlinkParent > div > a {
+    font-size: 14px;
+  }
+  #MyAccBtn > button.BlueWhiteBtn {
+    padding: 5px 10px;
+    font-size: 1rem;
+  }
+}
+
 @media all and (min-width: 320px) and (max-width: 809px) {
   body {
     overflow-x: hidden;
+  }
+  section {
+    padding: 10px !important;
   }
   #navclickbtn {
     display: block;
@@ -87,6 +181,9 @@ nav {
   nav {
     padding: 0px !important;
     z-index: 1000;
+  }
+  #Englishtopnav {
+    padding: 5px !important;
   }
   .LandingParent {
     flex-direction: column;
@@ -119,5 +216,21 @@ nav {
     z-index: 10;
     width: 100%;
   }
+
+  .footer_section {
+    margin-bottom: 0px;
+    flex-direction: column;
+    border: 0.25 solid grey;
+  }
+  .footer_section > div {
+    width: 100% !important;
+    padding: 10px !important;
+  }
+  #deliveryinp {
+    padding: 12px;
+    width: 60%;
+  }
+  #footer {
+    margin-bottom: 10px !important;
+  }
 }
-/*todo <!----------------------------------------------- < Header End > -----------------------------------------------> */

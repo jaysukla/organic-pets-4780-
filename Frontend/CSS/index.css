@@ -2,6 +2,9 @@
 section {
   margin: 20px 180px;
 }
+body {
+  overflow-x: hidden;
+}
 button {
   border: none;
   margin: 0px;
