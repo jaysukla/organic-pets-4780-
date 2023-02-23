@@ -230,6 +230,9 @@ nav {
     padding: 12px;
     width: 60%;
   }
+  #NavlinkParent > div > a {
+    font-size: 1.7rem;
+  }
   #footer {
     margin-bottom: 10px !important;
   }
