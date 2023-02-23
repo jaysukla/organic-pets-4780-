@@ -2,7 +2,6 @@
 * {
   margin: 0px;
   padding: 0px;
-
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
 }
@@ -10,7 +9,9 @@ html,
 body {
   position: relative !important;
 }
-
+img {
+  cursor: pointer;
+}
 section {
   margin: 20px 180px;
 }
@@ -25,6 +26,15 @@ p {
 }
 /*? <!----------------------------------------------- < Navbar > -----------------------------------------------> */
 
+.sticky {
+  position: fixed !important;
+  top: 0;
+  background-color: white;
+  padding: 0px 140px !important;
+  z-index: 10;
+  box-shadow: rgb(0 0 0 / 4%) 0px 4px 4px;
+  width: 100%;
+}
 header {
   box-shadow: rgb(0 0 0 / 4%) 0px 4px 4px;
 }
@@ -83,11 +93,11 @@ nav {
   justify-content: center;
   flex-direction: row;
 }
-.LandRight {
-  width: 50%;
-}
 .LandLeft {
   width: 50%;
+}
+.LandRight {
+  width: 60%;
 }
 
 #landingimage {
