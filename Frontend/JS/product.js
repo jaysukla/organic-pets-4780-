@@ -82,3 +82,5 @@ Schlimg4.addEventListener("click", () => {
   ScAuImg.setAttribute("src", "Images/Home/scl4.jpg");
   Schlimg4.style.color = "rgb(11, 53, 88)";
 });
+
+
