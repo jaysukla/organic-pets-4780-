@@ -10,3 +10,9 @@ function myFunction() {
       navbar.classList.remove("sticky");
     }
 }
+
+const create= document.getElementById("Create")
+
+create.addEventListener("click",()=>{
+  window.location.assign("../createevent/create.html")
+})

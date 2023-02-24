@@ -64,6 +64,7 @@
     border-radius: 1.5rem;
     color: white;
     font-weight: 600;
+    cursor: pointer;
 }
 #botnav{
     width: 80%;
@@ -79,7 +80,9 @@
 #botnav>ul>li:hover{
     color: #006bff;
 }
+
 /* ------------------body--------------- */
+
 #sticky{    
     box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 20px -20px;
     padding-bottom: 1.5rem;
@@ -113,7 +116,9 @@
     margin-bottom: 0.3rem;
 }
 
+
 /* -------------------------- */
+
 
 #topBody>div:nth-child(2)>div>p{
     border: 1px solid #006bff;
@@ -128,11 +133,41 @@
 #topBody>div:nth-child(2)>div:nth-child(2)>img{
     width: 100%;
 }
+
+
 /* ------------------------main-------------------- */
+
 
 #content>h2{
     padding: 1.5% 0;
     font-size: 1.2rem;
+}
+#content>div{
+    display: flex;
+    flex-wrap: wrap;
+}
+#event_card{
+    width: 30%;
+    border: 1px solid black;
+    padding: 1rem ;
+    margin: 3% 0;
+}
+#event_card img{
+    width: 10%;
+}
+#event_card>div:nth-child(1)>p{
+    font-size: 1.5rem;
+}
+#event_card>div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3%;
+}
+#event_card>div:nth-child(2){
+    margin: 1rem 0;
+}
+#link{
+    margin: 1rem 0;
 }
 
 @media screen and (min-width:1085px) and (max-width:1200px){
@@ -141,6 +176,7 @@
         margin: auto;
     }
 }
+
 @media screen and (min-width:843px) and (max-width:1085px){
     .margins{
         width: 90%;
@@ -159,6 +195,7 @@
         width: 3%;
     }
 }
+
 @media screen and (min-width:646px) and (max-width:843px){
     .margins{
         width: 90%;
@@ -177,6 +214,7 @@
         width: 5%;
     }
 }
+
 @media screen and (min-width:577px) and (max-width:646px){
     #navbar>div img{
         width: 90%;
@@ -194,7 +232,11 @@
     .namecircle{
         border: 3px solid #4e4e4e;
     }
+    #event_card{
+        width: 40%;
+    }
 }
+
 @media screen and (min-width:324px) and (max-width:577px){
     #navbar>div img{
         width: 90%;
@@ -245,5 +287,8 @@
         flex: 0 0 auto;
         width: 40%;
         justify-content: space-between;
+    }
+    #event_card{
+        width: 80%;
     }
 }

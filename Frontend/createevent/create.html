@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../login_index/loginNav.css">
+    <link rel="stylesheet" href="create.css">
+</head>
+
+<body>
+
+    <div id="navbar" class="margins">
+        <div> <img src="../photos/MyCal.png" alt="logo"></div>
+        <div id="linav">
+            <ul>
+                <li>Home</li>
+                <li>Availability</li>
+                <li>Intregations</li>
+                <li><span class="namecircle">M</span> Account</li>
+            </ul>
+        </div>
+        <div id="profile"><span class="namecircle">M</span></div>
+    </div>
+
+    <hr style="border: 1px solid rgba(128, 128, 128, 0.158);">
+
+    <div id="event_nav">
+        <div>
+            <div>
+                <p>Back</p>
+            </div>
+    
+            <div>
+                <h1>Add One-on-One Event Type</h1>
+            </div>
+    
+            <div>
+                <p>view live page</p>
+                <p>Share</p>
+            </div>
+        </div>      
+    </div>
+
+    <div class="margins" style="border: 2px solid rgb(84, 84, 84);">
+        <div id="eventformtop">
+            <div>
+                <span id="color"></span>
+                <div>
+                    <p>What event is this?</p>
+                    <p>No location given</p>
+                </div>
+            </div>
+
+            <div class="next_cancel">
+                <p>Cancel</p>
+                <p class="nextbutton">Next</p>
+            </div>
+        </div>
+        <hr>
+
+        <div id="event_form">
+            <div>
+                <label>Event name</label>
+                <br>
+                <input type="text" id="event_name" required>
+            </div>
+            <div>
+                <label>location</label>
+                <br>
+                <select name="rental-option" id="event_option" required>
+                    <option value="">Add a location</option>
+                    <option value="in-person-meeting">In-person meeting</option>
+                    <option value="call">Phone call</option>
+                    <option value="google-meet">Google meet</option>
+                    <option value="Zoom-call">Zoom</option>
+                </select>
+            </div>
+            <div>
+                <label >Description/Instructions</label> <br>
+                <input type="text" placeholder="Write a summery..." id="event_description" required>
+            </div>
+            <div>
+                <label>Event link </label> <br>
+                <p>calendly.com/mohimabahadur/</p>
+                <input type="text" id="event_link">
+            </div>
+            <br>
+            <label>Event color</label>
+        </div>
+
+        <hr>
+
+        <div class="next_cancel bot">
+            <p>Cancel</p>
+            <p class="nextbutton">Next</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script src="createEvent.js"></script>
