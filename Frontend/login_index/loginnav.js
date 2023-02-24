@@ -12,7 +12,95 @@ function myFunction() {
 }
 
 const create= document.getElementById("Create")
+const event_card = document.querySelector("#content>div")
 
 create.addEventListener("click",()=>{
   window.location.assign("../createevent/create.html")
 })
+
+const allEvents =JSON.parse(localStorage.getItem("testObject"))
+
+async function fetchdata(){
+    try {
+      let alldata = await fetch(
+        `https://long-tan-fossa-belt.cyclic.app/`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            // Authorization: `${accesstokenAdmin}`,
+          },
+        }
+      );
+
+      if(alldata.ok){
+        let data = await alldata.json()
+        // renderData(data)
+      }
+    }
+  catch(err){
+    console.log(err)
+  }
+}
+renderData(allEvents)
+function renderData(data){
+
+  event_card.innerHTML=""
+  // event_card.innerHTML=`${data.map((el)=>{
+  //       return `
+  //       <div id="event_card">
+  //               <div>
+  //                   <p>${el.title}</p>
+  //                   <img src="https://cdn-icons-png.flaticon.com/512/126/126472.png" alt="">
+  //               </div>
+
+  //               <div>
+  //                   <p>30 mins, One-on-One</p>
+  //                   <p>View Booking Page</p>
+  //               </div>
+  //               <hr>
+  //               <div id="link"><a href="#">Link</a></div>
+  //           </div> `
+  //   }).join("")}`
+  // `
+    if(data){
+      document.querySelector('#content>h2').innerText=""
+      document.querySelector('#content>p').innerText=""
+      event_card.innerHTML=`<div id="event_card">
+      <div>
+          <p>${data.title}</p>
+          <img src="https://cdn-icons-png.flaticon.com/512/126/126472.png" alt="">
+      </div>
+
+      <div>
+          <p>30 mins, One-on-One</p>
+          <p>View Booking Page</p>
+      </div>
+      <hr>
+      <div id="link"><a href="#">Link</a></div>
+    </div> `
+    }else{
+      document.querySelector('#content>h2').innerText="You don't have any event types yet."
+      document.querySelector('#content>p').innerText="You'll want to add an event type to allow people to schedule with you."
+    }
+}
+
+                                                                            
+
+async function deletefun(id){
+  try{
+      let res = await fetch(`https://long-tan-fossa-belt.cyclic.app/delete/${id}`,{
+          headers:{
+              "Content-Type": "application/json",
+              Authorization:access_token.token
+          },
+          method:"DELETE"
+      })
+      if(res.ok){
+        alert("successfully delete event")
+      }
+  }
+  catch(err){
+      console.log(err)
+  }
+}

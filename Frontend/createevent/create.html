@@ -54,8 +54,8 @@
                 </div>
             </div>
 
-            <div class="next_cancel">
-                <p>Cancel</p>
+            <div class="next_cancel" id="all">
+                <p class="cancelbutton">Cancel</p>
                 <p class="nextbutton">Next</p>
             </div>
         </div>
@@ -84,17 +84,36 @@
             </div>
             <div>
                 <label>Event link </label> <br>
-                <p>calendly.com/mohimabahadur/</p>
+                <p id="links">calendly.com/mohimabahadur/</p>
                 <input type="text" id="event_link">
             </div>
+            <div id="inputtime">
+                <div>
+                    <label>Start meeting time</label>
+                    <input type="time" id="starttime" placeholder="Start meeting time">
+                </div>
+                <div>
+                    <label>End meeting time</label>
+                    <input type="time" id="endtime" placeholder="End meeting time">
+                </div>
+            </div>
+            <div id="inputdate">
+                <div>
+                    <label>Start Date</label><br>
+                    <input type="date" id="startDate" placeholder="Start Date">
+                </div>
+                <div>
+                    <label>Start Date</label><br>
+                    <input type="date" id="endDate" placeholder="End Date">
+                </div>
+            </div>
             <br>
-            <label>Event color</label>
         </div>
 
         <hr>
 
         <div class="next_cancel bot">
-            <p>Cancel</p>
+            <p class="cancelbutton">Cancel</p>
             <p class="nextbutton">Next</p>
         </div>
     </div>
