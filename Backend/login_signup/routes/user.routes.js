@@ -3,6 +3,14 @@ const { Usermodel } = require("../models/user.model");
 const userRouter = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const redis = require("redis");
+
+const client = redis.createClient();
+
+client.on("error", (err) => console.log("Redis Client Error", err));
+
+client.connect();
+
 require("dotenv").config();
 
 userRouter.post("/register", async (req, res) => {
@@ -21,19 +29,20 @@ userRouter.post("/register", async (req, res) => {
           });
           await user.save();
           console.log(user);
+          // client.SET("userEmail", email);
           res.send(`${user.name} has registered`);
         }
       });
-      let userEmail = await Usermodel({ email: email });
-      let data = await fetch("https://finalcalender.vercel.app/regis", {
-        method: POST,
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: userEmail.email,
-        }),
-      });
+      // let userEmail = await Usermodel({ email: email });
+      // let data = await fetch("https://finalcalender.vercel.app/regis", {
+      //   method: POST,
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     email: userEmail.email,
+      //   }),
+      // });
     } catch (error) {
       console.log(error);
       res.status(500).send({ msg: error });
@@ -53,10 +62,10 @@ userRouter.post("/login", async (req, res) => {
     if (user) {
       bcrypt.compare(password, hasedpass, (err, result) => {
         if (result) {
-          const token = jwt.sign({ userID: user._id }, process.env.token);
+          const token = jwt.sign({ userID: user._id }, "sitansu");
           const Refresh_token = jwt.sign(
             { userID: user._id },
-            process.env.refresh_token
+            "sitansu_refresh"
           );
           res.send({
             msg: "Login succesfull",
