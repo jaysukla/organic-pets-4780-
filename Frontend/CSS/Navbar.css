@@ -2,7 +2,7 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   scroll-behavior: smooth;
 }
 
@@ -141,7 +141,9 @@ nav {
   color: rgb(0, 107, 255);
   cursor: pointer;
 }
-
+#footer {
+  padding: 20px 100px !important;
+}
 /*? <!----------------------------------------------- < Footer End > -----------------------------------------------> */
 
 /*! <!----------------------------------------------- < Media Queries > -----------------------------------------------> */
@@ -151,7 +153,8 @@ nav {
   body {
     overflow-x: hidden;
   }
-  section {
+  section,
+  #footer {
     margin: 10px !important;
     padding: 10px !important;
   }
