@@ -1,9 +1,11 @@
 const express = require("express");
 const moment = require("moment");
+const { sendMail } = require("../controller/mail");
 
 let notifyBeforeRouter = express.Router();
 
 notifyBeforeRouter.post("/workflow/notifyhost/:beforetime", (req, res) => {
+  let { subject, body, schduledDateTime, userMail } = req.body;
   let beforeSeconds = req.params.beforetime;
 
   // calculating difference between date and timein sec
@@ -15,19 +17,16 @@ notifyBeforeRouter.post("/workflow/notifyhost/:beforetime", (req, res) => {
     return seconds;
   }
   // providing current DateTime and end DateTime
-  let totalSeconds = calculateSeconds(
-    "2023-02-23:08:00:am",
-    "2023-02-23:08:01:am"
-  );
+  var CurrentDateTime = moment().format("YYYY-MM-DD hh:mm A");
+  let totalSeconds = calculateSeconds(CurrentDateTime, schduledDateTime);
   // decresing the time user wants to get notification from the schduled time/start DateTime
   let sendingNotificationMailSec = totalSeconds * 1000 - beforeSeconds * 1000;
   console.log(sendingNotificationMailSec);
-
   if (sendingNotificationMailSec >= 0) {
     setTimeout(() => {
-      console.log("Delayed for 1 second.");
+      sendMail(subject, body, userMail);
     }, sendingNotificationMailSec);
-    res.send("yes");
+    res.send("workflow created");
   } else {
     res.status(400);
     res.send("The time you selected is not valid.");

@@ -46,7 +46,7 @@
             </p>
             <p>Never miss an event — get automated email reminder</p>
             <div class="WFbtnDiv">
-              <button>Use Workflow</button>
+              <button id="EmailReminderHostsBtn">Use Workflow</button>
             </div>
           </div>
           <div>
@@ -80,3 +80,10 @@
     </div>
   </body>
 </html>
+
+<script>
+  let EmailReminderHostsBtn = document.querySelector("#EmailReminderHostsBtn");
+  EmailReminderHostsBtn.addEventListener("click", () => {
+    window.location.href = "./notifyBeforePage/notifyBeforePage.html";
+  });
+</script>
