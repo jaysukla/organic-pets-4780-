@@ -108,12 +108,12 @@ document.getElementById("google").addEventListener("click", () => {
   window.location.href = authgoogle;
 });
 
-async function call() {
-  try {
-    let res = await fetch("http://localhost:4500/dash");
-    console.log(res);
-  } catch (error) {
-    console.log(error);
-  }
-}
-call();
+// async function call() {
+//   try {
+//     let res = await fetch("http://localhost:4500/dash");
+//     console.log(res);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+// call();

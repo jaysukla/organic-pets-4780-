@@ -7,6 +7,29 @@
   scrollbar-color: #006bff white;
 }
 
+#globe {
+  width: 24px;
+}
+#down {
+  width: 24px;
+}
+#nav_logo {
+  width: 200px;
+}
+.BlueWhiteBtn {
+  border: 0px;
+  background-color: var(--blue);
+  color: white;
+  margin: 8px 0px;
+  padding: 10px 18px;
+  font-family: "Gilroy-Medium", sans-serif;
+  font-size: 18px;
+  border-radius: 7px;
+}
+
+.BlueWhiteBtn:hover {
+  background-color: var(--darkblue);
+}
 #section_1 {
   width: 100%;
   height: auto;
@@ -463,14 +486,14 @@ img:hover {
 #grow_p2 {
   color: var(--lightblue);
 }
-#grow_p2_span{
+#grow_p2_span {
   color: var(--blue);
 }
-#grow_p2_span:hover{
+#grow_p2_span:hover {
   color: var(--darkblue);
   cursor: pointer;
 }
-.sector_13{
+.sector_13 {
   height: 500px;
   background-image: url("../Images/product/Calendly_CTA_bg__1_.png");
   background-repeat: no-repeat;
@@ -478,29 +501,28 @@ img:hover {
   background-size: cover;
   text-align: center;
   font-family: "Gilroy-Medium", sans-serif;
-
 }
-#sector_13_child{
+#sector_13_child {
   padding-top: 70px;
   width: 50%;
   margin: auto;
 }
-#sector_13_p1{
+#sector_13_p1 {
   color: var(--white);
   font-size: 50px;
   font-weight: bold;
 }
-#sector_13_p2{
+#sector_13_p2 {
   color: var(--white);
   font-size: 20px;
 }
-#sector_13_child_button{
+#sector_13_child_button {
   width: 60%;
   margin: auto;
   display: flex;
   justify-content: space-evenly;
 }
-#signup{
+#signup {
   border: 0px;
   background-color: var(--blue);
   color: white;
@@ -510,12 +532,12 @@ img:hover {
   font-size: 18px;
   border-radius: 7px;
 }
-#signup:hover{
+#signup:hover {
   background-color: #4283b8;
 }
-#sales{
+#sales {
   border: 0px;
-  background:transparent;
+  background: transparent;
   color: var(--white);
   margin: 8px 0px;
   padding: 10px 18px;
@@ -524,8 +546,8 @@ img:hover {
   border-radius: 7px;
   border: 1px solid var(--white);
 }
-#sales:hover{
-  background-color:var(--white) ;
+#sales:hover {
+  background-color: var(--white);
   color: var(--blue);
   border: 1px solid var(--blue);
 }
@@ -605,6 +627,9 @@ img:hover {
   margin: 20px 48px;
   font-weight: 600;
 } */
+#footer{
+  padding: 20px 100px;
+}
 @media (min-width: 300px) and (max-width: 900px) {
   #cont1 {
     display: flex;
@@ -666,7 +691,7 @@ img:hover {
   #sector_10_P1 {
     font-size: 40px;
   }
-  .secton_12{
+  .secton_12 {
     flex-direction: column;
   }
 }

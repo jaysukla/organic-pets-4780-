@@ -11,7 +11,8 @@ app.use(express.json());
 app.use(cors());
 app.use("/users", userRouter);
 // app.use("/auth/google", googleRouter);
-
+// console.log(__dirname)
+// console.log(process.cwd())
 app.get("/", (req, res) => {
   try {
     res.send("Welcome to calendly");
@@ -56,10 +57,21 @@ app.get(
     };
     const user = new Usermodel(user_data);
     await user.save();
+    let userEmail = await Usermodel({ email: email });
+    let data = await fetch("https://finalcalender.vercel.app/regis", {
+      method: POST,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: userEmail.email,
+      }),
+    });
+    // sessionStorage.setItem("user", name);
     // console.log(user_data);
     // console.log(".." + __dirname);
     // dir="C:\Users\User\OneDrive\Desktop\organic-pets-4780-\Frontend\login_index\loginindex.html"
-    res.redirect("/");
+    res.redirect("https://calendly.com/event_types/user/me");
   }
 );
 
