@@ -3,15 +3,17 @@ let userMail = "";
 let collection = localStorage.getItem("collecton_name");
 console.log(collection);
 async function getData() {
-  let data = await fetch("https://impossible-pear-waistcoat.cyclic.app/allevents",{
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      "collection":collection
-      // Authorization: `${accesstokenAdmin}`,
-    },
-
-  });
+  let data = await fetch(
+    "https://impossible-pear-waistcoat.cyclic.app/allevents",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        collection: collection,
+        // Authorization: `${accesstokenAdmin}`,
+      },
+    }
+  );
   data = await data.json();
   showEvents(data.Data);
 }
@@ -85,13 +87,18 @@ form.addEventListener("submit", (event) => {
 async function sendMail(beforetime, subject, body) {
   console.log(userMail);
   let mailStatus = await fetch(
-    `http://localhost:5050/workflow/notifyhost/${beforetime}`,
+    `http://localhost:4500/workflow/notifyhost/${beforetime}`,
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ subject, body, schduledDateTime, userMail }),
+      body: JSON.stringify({
+        subject,
+        body,
+        schduledDateTime,
+        userMail: collection,
+      }),
     }
   );
   if (mailStatus.status == 200) {

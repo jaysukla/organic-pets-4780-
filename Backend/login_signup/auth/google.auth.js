@@ -14,7 +14,8 @@ passport.use(
     },
     function (accessToken, refreshToken, profile, cb) {
       // User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      console.log(profile);
+      // console.log(profile);
+      console.log(accessToken, profile);
       return cb(null, profile);
       // });
     }

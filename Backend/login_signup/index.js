@@ -7,6 +7,9 @@ const { userRouter } = require("./routes/user.routes.js");
 const passport = require("./auth/google.auth.js");
 const { Usermodel } = require("./models/user.model.js");
 // const { googleRouter } = require("./routes/googleauth.routes.js");
+const {
+  notifyBeforeRouter,
+} = require("./workflows/route/notifyBeforeEvent.route.js");
 require("dotenv").config();
 const app = express();
 
@@ -18,6 +21,7 @@ client.connect();
 
 app.use(express.json());
 app.use(cors());
+app.use(notifyBeforeRouter);
 app.use(cookieParser());
 app.use("/users", userRouter);
 // app.use("/auth/google", googleRouter);

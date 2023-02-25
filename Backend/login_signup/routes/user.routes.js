@@ -71,6 +71,7 @@ userRouter.post("/login", async (req, res) => {
             msg: "Login succesfull",
             token: token,
             refresh_token: Refresh_token,
+            email: email,
           });
         } else {
           res.send({ msg: "Login failed" });
