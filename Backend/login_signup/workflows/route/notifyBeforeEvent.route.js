@@ -21,7 +21,8 @@ notifyBeforeRouter.post("/workflow/notifyhost/:beforetime", (req, res) => {
   let totalSeconds = calculateSeconds(CurrentDateTime, schduledDateTime);
   // decresing the time user wants to get notification from the schduled time/start DateTime
   let sendingNotificationMailSec = totalSeconds * 1000 - beforeSeconds * 1000;
-  console.log(sendingNotificationMailSec);
+
+  console.log(sendingNotificationMailSec, totalSeconds, beforeSeconds);
   if (sendingNotificationMailSec >= 0) {
     setTimeout(() => {
       sendMail(subject, body, userMail);
