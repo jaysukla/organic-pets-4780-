@@ -1,7 +1,17 @@
 let schduledDateTime = "";
 let userMail = "";
+let collection = localStorage.getItem("collecton_name");
+console.log(collection);
 async function getData() {
-  let data = await fetch("https://long-tan-fossa-belt.cyclic.app/allevents");
+  let data = await fetch("https://impossible-pear-waistcoat.cyclic.app/allevents",{
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "collection":collection
+      // Authorization: `${accesstokenAdmin}`,
+    },
+
+  });
   data = await data.json();
   showEvents(data.Data);
 }
@@ -15,7 +25,7 @@ function showEvents(data) {
     console.log(element);
     let option = document.createElement("Option");
     option.value = JSON.stringify(element);
-    option.innerText = element.discription;
+    option.innerText = element.title;
     userEvents.append(option);
   });
 }
@@ -32,10 +42,10 @@ function changeSubjectandBody(data) {
   let subjectText = document.querySelector("#subjectText");
   let bodyText = document.querySelector("#bodyText");
 
-  subjectText.innerText = `Reminder: ${data.discription} is at ${data.endtime} on ${data.enddate}`;
+  subjectText.innerText = `Reminder: ${data.title} is at ${data.endtime} on ${data.enddate}`;
   bodyText.textContent = `Hi {{event_organizer_name}}, 
 
-This is a friendly reminder that your ${data.discription} is at ${data.endtime} on ${data.enddate}`;
+This is a friendly reminder that your ${data.title} is at ${data.endtime} on ${data.enddate}`;
 
   // changing format for geting the difference between two DateTime
   let end_date = data.enddate.split("-");

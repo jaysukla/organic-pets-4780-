@@ -20,7 +20,8 @@ const event_description = document.getElementById("event_description")
 const event_linkevent_link = document.getElementById("event_link")
 const startdate = document.getElementById("startDate")
 const endDate = document.getElementById("endDate")
-
+let collection = localStorage.getItem("collecton_name");
+console.log(collection)
 for(let i=0;i<nextbuttons.length;i++){
     nextbuttons[i].addEventListener("click",async()=>{
         let obj={
@@ -33,20 +34,27 @@ for(let i=0;i<nextbuttons.length;i++){
             discription:event_description.value,
             event_link:event_link.value,
         }
-        // let event_data = await fetch ("https://long-tan-fossa-belt.cyclic.app/newevent/",{
-        //     method:"POST",
-        //     headers:{
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify(obj)
-        // })
+        
 
-        // if(event_data.ok){
-        //     alert("Event has been created !!")
-        //     window.location.assign("../login_index/loginindex.html")
-        // }else{
-        //     alert("Bad request has been made")
-        // }
+        
+        let event_data = await fetch ("https://impossible-pear-waistcoat.cyclic.app/newevent",{
+            method:"POST",
+            headers:{
+                "Content-Type": "application/json",
+                "collection":collection
+            },
+            body: JSON.stringify(obj)
+        })
+
+let ev= await event_data.json()
+console.log(ev)
+
+        if(event_data.ok){
+            alert("Event has been created !!")
+            window.location.assign("../login_index/loginindex.html")
+        }else{
+            alert("Bad request has been made")
+        }
         window.location.assign("../login_index/loginindex.html")
         localStorage.setItem('testObject', JSON.stringify(obj))
     })
