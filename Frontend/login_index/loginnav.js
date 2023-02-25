@@ -35,13 +35,10 @@ async function fetchdata(){
         }
       );
 
-
-
-
       if(alldata.ok){
         let data = await alldata.json()
         renderData(data.Data)
-        console.log(data)
+        console.log(data.Data)
       }
     }
   catch(err){
@@ -49,11 +46,28 @@ async function fetchdata(){
   }
 }
 fetchdata()
-renderData(allEvents)
+
 function renderData(data){
 
   event_card.innerHTML=""
   event_card.innerHTML=`${data.map((el)=>{
+    let s = el.starttime.split(":")
+    let e = el.endtime.split(":")
+
+    let shour = s[0]
+    let smint= s[1].split(" ")[0]
+    let stime = +(shour+"."+smint)
+
+    let ehour = e[0]
+    let emint= e[1].split(" ")[0]
+    let etime = +(ehour+"."+emint)
+    let diff = (Math.abs(etime-stime)+"").split(".")
+    let mint ;
+    if(diff[0]==0){
+      mint = diff[1]+"mint"
+    }else{
+      mint = diff[0]+hr+" "+diff[1]+mint
+    }
         return `
         <div id="event_card">
                 <div>
@@ -62,7 +76,7 @@ function renderData(data){
                 </div>
 
                 <div>
-                    <p>30 mins, One-on-One</p>
+                    <p>${mint}, One-on-One</p>
                     <p>View Booking Page</p>
                 </div>
                 <hr>
@@ -70,28 +84,6 @@ function renderData(data){
             </div> `
     }).join("")}
   `
-
-
-//     if(data){
-//       document.querySelector('#content>h2').innerText=""
-//       document.querySelector('#content>p').innerText=""
-//       event_card.innerHTML=`<div id="event_card">
-//       <div>
-//           <p>${data.title}</p>
-//           <img src="https://cdn-icons-png.flaticon.com/512/126/126472.png" alt="">
-//       </div>
-
-//       <div>
-//           <p>30 mins, One-on-One</p>
-//           <p>View Booking Page</p>
-//       </div>
-//       <hr>
-//       <div id="link"><a href="#">Link</a></div>
-//     </div> `
-//     }else{
-//       document.querySelector('#content>h2').innerText="You don't have any event types yet."
-//       document.querySelector('#content>p').innerText="You'll want to add an event type to allow people to schedule with you."
-//     }
 }
 
                                                                             

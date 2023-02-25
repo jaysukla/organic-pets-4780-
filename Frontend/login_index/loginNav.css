@@ -13,6 +13,14 @@
     justify-content: space-between;
     align-items: center;
 }
+#navbar a{
+    text-decoration: none;
+    color: gray;
+}
+#navbar a:hover{
+    text-decoration: none;
+    color: #4e4e4e;
+}
 #navbar>div:nth-child(1){
     width: 20%;
 }
