@@ -237,7 +237,7 @@
     }
 }
 
-@media screen and (min-width:324px) and (max-width:577px){
+@media screen and (min-width:320px) and (max-width:577px){
     #navbar>div img{
         width: 90%;
     }

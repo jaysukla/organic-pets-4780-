@@ -92,9 +92,131 @@ label{
     margin-top: 0.2rem;
     border: 1px solid #cccccc9d;
 }
-#event_description::placeholder{
+#event_form input::placeholder,#event_form select::placeholder{
     padding: 0 2%;
 }
 #event_form #event_description{
     padding-bottom: 10%;
+}
+#event_form #inputtime,#event_form #inputdate{
+    width: 47%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2%;
+}
+#event_form #inputdate>div,#event_form #inputtime>div {
+    width: 100%;
+}
+#event_form #inputdate>div input,#event_form #inputtime>div input{
+    width: 90%;
+    border-radius: 5px;
+    padding: 4% 0;
+}
+.cancelbutton{
+    cursor: pointer;
+}
+
+@media screen and (min-width:1085px) and (max-width:1200px){
+}
+
+@media screen and (min-width:843px) and (max-width:1085px){
+    #event_nav h1{
+        font-size:2rem;
+    }
+    #event_nav>div{
+        width: 90%;
+    }
+    
+    #event_nav>div>div:nth-child(3){
+        width: 25%;
+    }
+}
+
+@media screen and (min-width:646px) and (max-width:843px){
+    #event_nav h1{
+        font-size:1.4rem;
+    }
+    #event_nav>div{
+        width: 90%;
+    }
+    
+    #event_nav>div>div:nth-child(3){
+        width: 30%;
+    }
+    #event_nav>div>div:nth-child(1)>p{
+        padding: 0.6rem 1.1rem;
+    }
+    #event_nav>div>div:nth-child(3)>p:nth-child(2){
+        padding: 0.6rem 1.1rem;
+    }
+    #event_nav>div>div:nth-child(3)>p:nth-child(1){
+        font-size: 14px;
+    }
+    #eventformtop>div:nth-child(2){
+        width: 30%;
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (min-width:577px) and (max-width:646px){
+    #event_nav h1{
+        font-size:1.4rem;
+        text-align: center;
+    }
+    #event_nav>div>div:nth-child(3),#event_nav>div>div:nth-child(1){
+        display: none;
+    }
+    #eventformtop>div:nth-child(2){
+        width: 30%;
+        justify-content: space-between;
+    }
+    #event_form{
+        padding: 2.5rem 1rem;
+    }
+    #event_form input,select{
+        width: 60%;
+        margin-bottom: 1rem;
+        padding: 0.7rem;
+    }
+    #event_form #event_description{
+        padding-bottom: 20%;
+    }
+
+}
+
+@media screen and (min-width:320px) and (max-width:577px){
+    #event_nav h1{
+        font-size:1.2rem;
+        text-align: center;
+    }
+    #event_nav>div>div:nth-child(3),#event_nav>div>div:nth-child(1){
+        display: none;
+    }
+    #eventformtop{
+        /* background-color: #006bff; */
+        margin: auto;
+        text-align: center;
+        justify-content:center ;
+    }
+    #color,#all{
+        display: none;
+    }
+    #event_form{
+        padding: 2.5rem 1rem;
+    }
+    #event_form input,select{
+        width: 90%;
+        margin-bottom: 1rem;
+        padding: 0.7rem;
+    }
+    #event_form #event_description{
+        padding-bottom: 20%;
+    }
+    #event_form #inputtime,#event_form #inputdate{
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2%;
+    }
+
 }
