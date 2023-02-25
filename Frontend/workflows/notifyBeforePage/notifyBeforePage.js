@@ -44,22 +44,20 @@ function changeSubjectandBody(data) {
   let subjectText = document.querySelector("#subjectText");
   let bodyText = document.querySelector("#bodyText");
 
-  subjectText.innerText = `Reminder: ${data.title} is at ${data.endtime} on ${data.enddate}`;
+  subjectText.innerText = `Reminder: ${data.title} is at ${data.starttime} on ${data.startdate}`;
   bodyText.textContent = `Hi {{event_organizer_name}}, 
 
-This is a friendly reminder that your ${data.title} is at ${data.endtime} on ${data.enddate}`;
+This is a friendly reminder that your ${data.title} is at ${data.starttime} on ${data.startdate}`;
 
   // changing format for geting the difference between two DateTime
-  let end_date = data.enddate.split("-");
-  end_date = end_date[2] + "-" + end_date[1] + "-" + end_date[0];
 
-  let end_time = data.endtime.split(" ");
-  end_time = end_time[0] + ":" + end_time[1];
+  let start_time = data.starttime.split(" ");
+  start_time = start_time[0] + ":" + start_time[1];
 
-  schduledDateTime = end_date + ":" + end_time;
+  schduledDateTime = data.startdate + ":" + start_time;
 
   // setting usermail
-  userMail = data.email;
+  userMail = collection;
 }
 
 // ************************************************************************getting data from form**************************************
@@ -97,7 +95,7 @@ async function sendMail(beforetime, subject, body) {
         subject,
         body,
         schduledDateTime,
-        userMail: collection,
+        userMail,
       }),
     }
   );
