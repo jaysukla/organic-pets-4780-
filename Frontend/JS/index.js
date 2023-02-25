@@ -11,6 +11,8 @@ let recrutingtabbox = document.getElementById("recrutingtabbox");
 let infotabbox = document.getElementById("infotabbox");
 let edutabbox = document.getElementById("edutabbox");
 
+
+
 function RemoveOtherTabs() {
   let othertabs = document.querySelectorAll("#TabSelectors>div");
   let otherboxes = document.querySelectorAll(".DesignTeamTabsChild");

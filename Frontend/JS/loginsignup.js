@@ -70,6 +70,7 @@ let login_user = async (obj) => {
     console.log(token);
     localStorage.setItem("accessToken", token.token);
     localStorage.setItem("username", token.name);
+    localStorage.setItem("collecton_name", token.email);
     if (token.token) {
       window.location.href = "index.html";
     }
