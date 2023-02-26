@@ -98,7 +98,7 @@ function renderData(data){
 // console.log(deletebtn)
   for(let i=0;i<deletebtn.length;i++){
     deletebtn[i].addEventListener("click",(e)=>{
-      // deletefun(e['target']['name'])
+      deletefun(e['target']['name'])
     })
   } 
 
