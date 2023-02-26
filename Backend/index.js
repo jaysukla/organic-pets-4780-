@@ -83,18 +83,15 @@ app.get(
     // });
     // console.log(user_data);
     // console.log(".." + __dirname);
-    // dir="C:\Users\User\OneDrive\Desktop\organic-pets-4780-\Frontend\login_index\Dashboard.html"
+    // dir="C:\Users\User\OneDrive\Desktop\organic-pets-4780-\Frontend\Dashboard\Dashboard.html"
 
     res.cookie("userEmail", email);
-
-    // client.SET("userEmail", email);
     res.redirect("https://calendly.com/event_types/user/me");
   }
 );
 
 app.get("/userEmail", async (req, res) => {
   try {
-    // const userEmail = await client.GET("userEmail");
     res.send({
       email: req.cookies.userEmail,
     });
@@ -106,8 +103,8 @@ app.get("/userEmail", async (req, res) => {
 app.listen(4500, async () => {
   try {
     connection;
-    console.log(`connected to db`);
-    console.log(`Server Running in port 4500`);
+    console.log(`Connected to db`);
+    console.log(`Server Rocking in port 4500`);
   } catch (error) {
     console.log(error);
   }
