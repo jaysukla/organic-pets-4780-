@@ -5,7 +5,6 @@
   font-family: "Poppins", sans-serif !important;
   scroll-behavior: smooth;
 }
-
 html,
 body {
   position: relative !important;
@@ -27,6 +26,7 @@ p {
 .sticky {
   position: fixed !important;
   top: 0;
+  box-sizing: border-box;
   background-color: white;
   padding: 0px 140px !important;
   z-index: 10;
@@ -59,6 +59,7 @@ nav {
 }
 #NavlinkParent > div > a {
   font-size: 1.2rem;
+  color: black;
   font-weight: 600;
 }
 #Englishtopnav {

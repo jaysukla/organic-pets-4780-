@@ -9,13 +9,13 @@
       </div>
     </div>
     <nav id="stickynav">
-      <div id="NavBrand"><img style="width:200px;" src="Images/Icons/MyCalBrand.png" alt=""></div>
+      <div id="NavBrand"><a href="index.html"><img style="width:200px;" src="Images/Icons/MyCalBrand.png" alt=""></a></div>
       <div id="NavlinkParent">
-        <div data-navclose><a class="nav-link" href="">Products</a></div>
-        <div data-navclose><a class="nav-link" href="">Solutions</a></div>
-        <div data-navclose><a class="nav-link" href="">Teams & Companies</a></div>
-        <div data-navclose><a class="nav-link" href="">Pricing</a></div>
-        <div data-navclose><a class="nav-link" href="">Resources</a></div>
+        <div data-navclose><a class="nav-link" href="products.html">Products</a></div>
+        <div data-navclose><a class="nav-link" href="index.html">Solutions</a></div>
+        <div data-navclose><a class="nav-link" href="index.html">Teams & Companies</a></div>
+        <div data-navclose><a class="nav-link" href="index.html">Pricing</a></div>
+        <div data-navclose><a class="nav-link" href="index.html">Resources</a></div>
       </div>
       <div id="MyAccBtn" class="flex">
         <button class="BlueWhiteBtn">My Account</button>
