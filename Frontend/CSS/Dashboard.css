@@ -153,6 +153,18 @@ a {
 #topBody > div:nth-child(2) > div:nth-child(2) > img {
   width: 100%;
 }
+.Deleter {
+  background-color: #0069ff;
+  padding: 0.7rem 1rem;
+  border-radius: 1.5rem;
+  color: white;
+  font-weight: 600;
+  border: 0px;
+  cursor: pointer;
+}
+.Deleter:hover {
+  background-color: #0958c6;
+}
 
 /* ------------------------main-------------------- */
 

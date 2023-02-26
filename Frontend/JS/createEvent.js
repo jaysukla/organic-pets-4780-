@@ -51,14 +51,17 @@ for (let i = 0; i < nextbuttons.length; i++) {
 
     let ev = await event_data.json();
     console.log(ev);
-
+    if (ev.msg == "TIME sLOT IS NOT AVAILABLE") {
+      alert("Time Slot is not Available");
+      return;
+    }
     if (event_data.ok) {
       alert("Event has been created !!");
-      window.location.assign("../login_index/Dashboard.html");
+      window.location.assign("./Dashboard.html");
     } else {
       alert("Bad request has been made");
     }
-    window.location.assign("../login_index/Dashboard.html");
+    window.location.assign("./Dashboard.html");
     localStorage.setItem("testObject", JSON.stringify(obj));
   });
 }
@@ -66,7 +69,7 @@ for (let i = 0; i < nextbuttons.length; i++) {
 
 for (let i = 0; i < cancelbutton.length; i++) {
   cancelbutton[i].addEventListener("click", async () => {
-    window.location.assign("../login_index/Dashboard.html");
+    window.location.assign("./Dashboard.html");
   });
 }
 

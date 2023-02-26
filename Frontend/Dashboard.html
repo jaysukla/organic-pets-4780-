@@ -4,21 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>MyCal : Dashboard</title>
+    <link rel="icon" href="./Images/product/icon_mycal.png" />
     <link rel="stylesheet" href="CSS/Dashboard.css" />
   </head>
   <body>
     <div id="navbar" class="margins">
-      <div><img src="Images/Icons/MyCalBrand.png" alt="logo" /></div>
+      <div>
+        <a href="index.html"
+          ><img src="Images/Icons/MyCalBrand.png" alt="logo"
+        /></a>
+      </div>
       <div id="linav">
         <ul>
           <li><a href="./index.html">Home</a></li>
-          <li><a href="#">Availability</a></li>
-          <li><a href="#">Intregations</a></li>
-          <li><span class="namecircle">M</span> <a href="#">Account</a></li>
+          <li><a href="">Availability</a></li>
+          <li><a href="">Intregations</a></li>
+          <li>
+            <span class="namecircle"> A</span>
+            <a href="Dashboard.html" id="CollectionName3">Account</a>
+          </li>
         </ul>
       </div>
-      <div id="profile"><span class="namecircle">M</span></div>
+      <div id="profile">
+        <span class="namecircle"> M</span>
+      </div>
     </div>
 
     <hr style="border: 1px solid rgba(128, 128, 128, 0.158)" />
@@ -30,10 +40,10 @@
       </div>
       <div id="botnav">
         <ul>
-          <li>Event Types</li>
-          <li>Shedule Events</li>
-          <li>Workflows</li>
-          <li>Routing Forms</li>
+          <li><a href="">Event Types</a></li>
+          <li><a href="">Schedule Event </a></li>
+          <li><a href="NotifyBeforePage.html">Workflows</a></li>
+          <li><a href="">Routing Forms</a></li>
         </ul>
       </div>
     </div>
@@ -42,8 +52,10 @@
       <div>
         <p>M</p>
         <div>
-          <p>Mohima Bahadur</p>
-          <a href="#">MyCal.com/mohimabahadur</a>
+          <p id="CollectionName">Mohima Bahadur</p>
+          <a href="#"
+            >MyCal.com/<span id="CollectionName2">mohimabahadur</span></a
+          >
         </div>
       </div>
 

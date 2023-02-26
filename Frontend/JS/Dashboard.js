@@ -5,6 +5,10 @@ window.onscroll = function () {
 var navbar = document.getElementById("sticky");
 var sticky = navbar.offsetTop;
 let collection = localStorage.getItem("collecton_name");
+let fullnameX = collection.split("@")[0];
+CollectionName.innerHTML = fullnameX;
+CollectionName2.innerHTML = fullnameX;
+CollectionName3.innerHTML = fullnameX;
 console.log(collection);
 function myFunction() {
   if (window.pageYOffset >= sticky) {
@@ -65,9 +69,9 @@ function renderData(data) {
       let diff = (Math.abs(etime - stime) + "").split(".");
       let mint;
       if (diff[0] == 0) {
-        mint = diff[1] + "mint";
+        mint = diff[1] + "mintutes ";
       } else {
-        mint = diff[0] + hr + " " + diff[1] + mint;
+        mint = diff[0] + "hr" + " " + diff[1] + "mintutes ";
       }
       return `
         <div id="event_card">
@@ -82,10 +86,18 @@ function renderData(data) {
                 </div>
                 <hr>
                 <div id="link"><a href="#">Link</a></div>
+                <button data-id=${el._id} class="Deleter">Delete</button>
             </div> `;
     })
     .join("")}
   `;
+
+  let Deleters = document.querySelectorAll(".Deleter");
+  for (let i = 0; i < Deleters.length; i++) {
+    Deleters[i].addEventListener("click", (e) => {
+      deletefun(e.target.dataset.id);
+    });
+  }
 }
 
 async function deletefun(id) {
@@ -95,13 +107,13 @@ async function deletefun(id) {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: access_token.token,
+          collection: collection,
         },
         method: "DELETE",
       }
     );
     if (res.ok) {
-      alert("successfully delete event");
+      alert("Event Deleted Successfully");
     }
   } catch (err) {
     console.log(err);
