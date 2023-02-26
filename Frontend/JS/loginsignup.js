@@ -57,7 +57,7 @@ let check_login_input_values = () => {
 };
 
 let login_user = async (obj) => {
-  let res = await fetch(loginUrl, {
+  let res = await fetch("https://fierce-shoulder-pads-deer.cyclic.app/users/login", {
     method: "POST",
     body: JSON.stringify(obj),
     headers: {
@@ -105,9 +105,9 @@ let login_user = async (obj) => {
 //     window.location.href = "admin.html";
 //   }
 // }
-document.getElementById("google").addEventListener("click", () => {
-  window.location.href = authgoogle;
-});
+// document.getElementById("google").addEventListener("click", () => {
+//   window.location.href = authgoogle;
+// });
 
 // async function call() {
 //   try {
