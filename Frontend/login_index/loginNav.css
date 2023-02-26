@@ -153,6 +153,7 @@
 #content>div{
     display: flex;
     flex-wrap: wrap;
+    column-gap: 2%;
 }
 #event_card{
     width: 30%;
@@ -162,6 +163,7 @@
 }
 #event_card img{
     width: 10%;
+    cursor: pointer;
 }
 #event_card>div:nth-child(1)>p{
     font-size: 1.5rem;
