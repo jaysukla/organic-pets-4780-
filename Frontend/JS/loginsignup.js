@@ -1,4 +1,4 @@
-const baseUrl = `https://fierce-shoulder-pads-deer.cyclic.app`;
+const baseUrl = `https://organic-pets-4780-backend.vercel.app`;
 const usersUrl = `${baseUrl}/users`;
 const signinUrl = `${usersUrl}/register`;
 const loginUrl = `${usersUrl}/login`;
@@ -57,7 +57,7 @@ let check_login_input_values = () => {
 };
 
 let login_user = async (obj) => {
-  let res = await fetch("https://fierce-shoulder-pads-deer.cyclic.app/users/login", {
+  let res = await fetch("https://organic-pets-4780-backend.vercel.app/users/login", {
     method: "POST",
     body: JSON.stringify(obj),
     headers: {
