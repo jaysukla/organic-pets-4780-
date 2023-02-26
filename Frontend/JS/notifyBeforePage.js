@@ -85,7 +85,7 @@ form.addEventListener("submit", (event) => {
 async function sendMail(beforetime, subject, body) {
   console.log(userMail);
   let mailStatus = await fetch(
-    `http://localhost:4500/workflow/notifyhost/${beforetime}`,
+    `https://fierce-shoulder-pads-deer.cyclic.app/workflow/notifyhost/${beforetime}`,
     {
       method: "POST",
       headers: {

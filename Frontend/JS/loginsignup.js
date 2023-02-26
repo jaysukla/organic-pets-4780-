@@ -1,4 +1,4 @@
-const baseUrl = `http://localhost:4500`;
+const baseUrl = `https://fierce-shoulder-pads-deer.cyclic.app`;
 const usersUrl = `${baseUrl}/users`;
 const signinUrl = `${usersUrl}/register`;
 const loginUrl = `${usersUrl}/login`;
