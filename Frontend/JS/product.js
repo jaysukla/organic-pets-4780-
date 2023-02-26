@@ -84,5 +84,5 @@
 // });
 
 // document.getElementsByClassName("BlueWhiteBtn").addEventListener("click",()=>{
-//   window.location.href="loginindex.html"
+//   window.location.href="Dashboard.html"
 // })

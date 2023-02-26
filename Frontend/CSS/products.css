@@ -7,6 +7,9 @@
   scrollbar-color: #006bff white;
 }
 
+body {
+  overflow-x: hidden;
+}
 #globe {
   width: 24px;
 }
@@ -39,13 +42,12 @@
 #cont1 {
   width: 90%;
   height: auto;
-  margin: auto;
   border: 1px solid transparent;
   display: grid;
   grid-template-columns: 40% 50%;
   grid-template-rows: auto;
   gap: 5%;
-  padding: 72px 24px;
+  margin: 70px 180px !important;
 }
 #sec-div-1 {
   border: 1px solid transparent;
@@ -54,7 +56,7 @@
   font-weight: bold;
   color: var(--darkblue);
   margin: 0px 0px 32px;
-
+  line-height: 1.3;
   font-size: 72px;
   font-family: "Gilroy-Medium", sans-serif;
   /* font-family:100px Gilroy, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; */
@@ -120,7 +122,7 @@
   color: var(--darkblue);
   /* margin: 0px 0px 72px; */
   width: 60%;
-  margin: auto;
+  margin: auto !important;
   text-align: center;
   font-size: 28px;
   font-family: "Gilroy-Medium", sans-serif;
@@ -627,7 +629,7 @@ img:hover {
   margin: 20px 48px;
   font-weight: 600;
 } */
-#footer{
+#footer {
   padding: 20px 100px;
 }
 @media (min-width: 300px) and (max-width: 900px) {
