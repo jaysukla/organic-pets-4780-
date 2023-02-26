@@ -11,8 +11,6 @@ let recrutingtabbox = document.getElementById("recrutingtabbox");
 let infotabbox = document.getElementById("infotabbox");
 let edutabbox = document.getElementById("edutabbox");
 
-
-
 function RemoveOtherTabs() {
   let othertabs = document.querySelectorAll("#TabSelectors>div");
   let otherboxes = document.querySelectorAll(".DesignTeamTabsChild");
@@ -83,4 +81,13 @@ Schlimg4.addEventListener("click", () => {
   RemoveStyleSchel();
   ScAuImg.setAttribute("src", "Images/Home/scl4.jpg");
   Schlimg4.style.color = "rgb(11, 53, 88)";
+});
+let MyAccountBtn = document.getElementById("MyAccountBtn");
+MyAccountBtn.addEventListener("click", () => {
+  let user = localStorage.getItem("collecton_name");
+  if (user) {
+    window.location.href = "./Dashboard.html";
+  } else {
+    window.location.href = "./loginSignup.html";
+  }
 });
