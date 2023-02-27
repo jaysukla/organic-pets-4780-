@@ -17,6 +17,23 @@ You can share your availability preferences and meeting location in one click.
 This website is fully functional website with all CRUD operations by user .
 They need to go through User Authentication middleware, to perform any interactions
 
+
+# TechStack Used for this website :-
+
+> Frontend :-
+- HTML
+- CSS
+- JavaScript
+- Bootstrap & AOS
+
+> Backend :-
+- Node.js
+- Express.js
+- MongoDB database
+- Sendinblue package
+  
+  
+
 ## Here are some screenshots of website.
 
 ### :large_blue_circle: Home Page :-
