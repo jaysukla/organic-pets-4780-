@@ -20,19 +20,23 @@ They need to go through User Authentication middleware, to perform any interacti
 
 # TechStack Used for this website :-
 
-> Frontend :-
-- HTML
-- CSS
-- JavaScript
-- Bootstrap & AOS
+### Frontend :-
+> HTML
+> CSS
+> JavaScript
+> Bootstrap & AOS
 
-> Backend :-
-- Node.js
-- Express.js
-- MongoDB database
-- Sendinblue package
+### Backend :-
+> Node.js
+> Express.js
+> MongoDB database
+> Sendinblue package
   
-  
+# Features of this Website:-
+> Login & Signup feature.
+> User can create events for particular date & time.
+> User will recieve reminders before the event via email.
+> Workflows feature help in creating a reminder for an event.
 
 ## Here are some screenshots of website.
 
