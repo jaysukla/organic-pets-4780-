@@ -124,9 +124,15 @@ nav {
   border-radius: 5px;
 }
 .footerLeft {
-  width: 30%;
+  width: 32%;
 }
-
+#spinner {
+  display: none;
+  position: fixed;
+  top: 50px;
+  left: 70px;
+  z-index: 999999;
+}
 .footerRight {
   width: 60%;
   display: grid;

@@ -1,8 +1,13 @@
 let schduledDateTime = "";
 let userMail = "";
 let collection = localStorage.getItem("collecton_name");
+let fullnameX = collection.split("@")[0];
+CollectionName3.innerHTML =
+  fullnameX + `<p style="font-size: 12px;">(Logout)</p>`;
 console.log(collection);
+
 async function getData() {
+  spinner.style.display = "block"; //!Spinner
   let data = await fetch(
     "https://impossible-pear-waistcoat.cyclic.app/allevents",
     {
@@ -10,7 +15,6 @@ async function getData() {
       headers: {
         "Content-Type": "application/json",
         collection: collection,
-        // Authorization: `${accesstokenAdmin}`,
       },
     }
   );
@@ -18,7 +22,8 @@ async function getData() {
   showEvents(data.Data);
 }
 getData();
-// *********************************************************appending data in select tag*****************************************
+
+//? <!----------------------------------------------- < Appending data in select tag> ----------------------------------------------->
 
 function showEvents(data) {
   console.log(data);
@@ -30,24 +35,34 @@ function showEvents(data) {
     option.innerText = element.title;
     userEvents.append(option);
   });
+  spinner.style.display = "none"; //!Spinner
 }
 
-// *********************************************************getting data from select tag amd chenging body and subject****************
+//? <!----------------------------------------------- < Getting data from select tag and changing body and subject> ----------------------------------------------->
+
 let userEvents = document.querySelector("#userEvents");
 userEvents.addEventListener("change", () => {
-  let data = JSON.parse(userEvents.value);
-  changeSubjectandBody(data);
+  spinner.style.display = "block"; //!Spinner
+  try {
+    let data = JSON.parse(userEvents.value);
+    changeSubjectandBody(data);
+  } catch (error) {
+    spinner.style.display = "none"; //!Spinner
+  }
 });
 
 function changeSubjectandBody(data) {
+  spinner.style.display = "block"; //!Spinner
   console.log(data);
   let subjectText = document.querySelector("#subjectText");
   let bodyText = document.querySelector("#bodyText");
 
   subjectText.innerText = `Reminder: ${data.title} is at ${data.starttime} on ${data.startdate}`;
-  bodyText.textContent = `Hi {{event_organizer_name}}, 
+  bodyText.textContent = `Hi ${collection.split("@")[0]}, 
 
-This is a friendly reminder that your ${data.title} is at ${data.starttime} on ${data.startdate}`;
+This is a friendly reminder that your ${data.title} is at ${
+    data.starttime
+  } on ${data.startdate}`;
 
   // changing format for geting the difference between two DateTime
 
@@ -56,17 +71,18 @@ This is a friendly reminder that your ${data.title} is at ${data.starttime} on $
 
   schduledDateTime = data.startdate + ":" + start_time;
 
-  // setting usermail
   userMail = collection;
+  spinner.style.display = "none"; //!Spinner
 }
 
-// ************************************************************************getting data from form**************************************
+//? <!----------------------------------------------- < Getting data from form> ----------------------------------------------->
 
 let form = document.querySelector("form");
 form.addEventListener("submit", (event) => {
+  spinner.style.display = "block"; //!Spinner
   event.preventDefault();
-  let workflowName = form.name.value;
-  let userEventsData = JSON.parse(form.userEvents.value);
+  // let workflowName = form.name.value;
+  // let userEventsData = JSON.parse(form.userEvents.value);
   let beforeTimeValue = form.beforeTimeValue.value;
   let beforeTimeUnit = form.beforeTimeUnit.value;
   let subjectText = form.subjectText.value;
@@ -79,10 +95,8 @@ form.addEventListener("submit", (event) => {
   }
   sendMail(timeinSec, subjectText, bodyText);
 });
-
-// function to send main
-
 async function sendMail(timeinSec, subject, body) {
+  spinner.style.display = "block"; //!Spinner
   console.log(userMail);
   let mailStatus = await fetch(
     `https://fierce-shoulder-pads-deer.cyclic.app/workflow/notifyhost/${timeinSec}`,
@@ -100,8 +114,24 @@ async function sendMail(timeinSec, subject, body) {
     }
   );
   if (mailStatus.status == 200) {
-    alert("workflow schduled");
+    spinner.style.display = "none"; //!Spinner
+    swal("Your Workflow has been Scheduled", "", "success");
   } else {
-    alert("plese select a correct time or event");
+    spinner.style.display = "none"; //!Spinner
+    swal("Pleas select correct Time & Event", "", "info");
   }
 }
+let Logout = document.getElementsByClassName("namecircle")[0];
+Logout.addEventListener("click", () => {
+  spinner.style.display = "block"; //!Spinner{
+  swal("Logging Out..", "", "info");
+  localStorage.clear();
+  setTimeout(() => {
+    spinner.style.display = "none"; //!Spinner
+    window.location.href = "./index.html";
+  }, 1000);
+});
+let backbtn = document.querySelector("#event_nav > div > div:nth-child(1) > p");
+backbtn.addEventListener("click", () => {
+  window.location.href = "Dashboard.html";
+});

@@ -14,6 +14,18 @@ body {
 .parent {
   display: flex;
 }
+.swal-button {
+  width: 100%;
+  background-color: #0069ff;
+}
+#spinner {
+  display: none;
+  position: fixed;
+  top: 50px;
+  right: 290px;
+  filter: invert();
+  z-index: 999999;
+}
 .brand {
   width: 400px;
   height: 600px;
@@ -247,10 +259,3 @@ button:hover {
 #social > a:nth-of-type(4):before {
   content: "\f113";
 }
-/* 
-  #social>a:nth-of-type(5):before {
-  content:'\f17d';
-  }
-  #social>a:nth-of-type(6):before {
-  content:'\f1cb';
-  }  */

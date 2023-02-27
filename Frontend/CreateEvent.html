@@ -1,139 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create Event</title>
-    <link rel="icon" href="./Images/product/icon_mycal.png" />
-    <link rel="stylesheet" href="CSS/Dashboard.css" />
-    <link rel="stylesheet" href="CSS/create.css" />
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Event</title>
+  <link rel="icon" href="./Images/product/icon_mycal.png" />
+  <link rel="stylesheet" href="CSS/Dashboard.css" />
+  <link rel="stylesheet" href="CSS/create.css" />
+</head>
+
+<body>
+  <!--todo--------------------------------------------- <Header> ----------------------------------------------->
+  <header>
+    <div id="spinner">
+      <img style="width: 70px" src="Images/spinner.gif" alt="" />
+    </div>
     <div id="navbar" class="margins">
       <div>
-        <a href="index.html"
-          ><img width="200px" src="Images/Icons/MyCalBrand.png" alt="logo"
-        /></a>
+        <a href="index.html"><img src="Images/Icons/MyCalBrand.png" alt="logo" /></a>
       </div>
       <div id="linav">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="./index.html">Home</a></li>
           <li><a href="">Availability</a></li>
           <li><a href="">Intregations</a></li>
-          <li>
-            <a href="Dashboard.html"
-              ><span class="namecircle">M</span> Account</a
-            >
-          </li>
         </ul>
       </div>
-      <div id="profile"><span class="namecircle">M</span></div>
+      <style>
+        #Logout {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      </style>
+      <div id="Logout">
+        <div class="namecircle">
+          <img style="width: 22px; filter: invert()" src="Images/logout.svg" alt="" />
+        </div>
+        <a href="Dashboard.html" id="CollectionName3">Account</a>
+      </div>
     </div>
 
     <hr style="border: 1px solid rgba(128, 128, 128, 0.158)" />
 
-    <div id="event_nav">
-      <div>
-        <div>
-          <p>Back</p>
-        </div>
-
-        <div>
-          <h1>Add One-on-One Event Type</h1>
-        </div>
-
-        <div>
-          <p>view live page</p>
-          <p>Share</p>
-        </div>
+    <div id="sticky">
+      <div id="topnav">
+        <p>My Calendly</p>
+        <a href="CreateEvent.html">
+          <p id="Create">+ Create</p>
+        </a>
+      </div>
+      <div id="botnav">
+        <ul>
+          <li><a href="">Event Types</a></li>
+          <li><a href="">Schedule Event </a></li>
+          <li><a href="NotifyBeforePage.html">Workflows</a></li>
+          <li><a href="">Routing Forms</a></li>
+        </ul>
       </div>
     </div>
+  </header>
+  <!--todo-------------------------------------------------------------------------------------------->
+  <hr style="border: 1px solid rgba(128, 128, 128, 0.158)" />
 
-    <div class="margins" style="border: 2px solid rgb(84, 84, 84)">
-      <div id="eventformtop">
-        <div>
-          <span id="color"></span>
-          <div>
-            <p>What event is this?</p>
-            <p>No location given</p>
-          </div>
-        </div>
-
-        <div class="next_cancel" id="all">
-          <p class="cancelbutton">Cancel</p>
-          <p class="nextbutton">Next</p>
-        </div>
-      </div>
-      <hr />
-
-      <div id="event_form">
-        <div>
-          <label>Event name</label>
-          <br />
-          <input type="text" id="event_name" required />
-        </div>
-        <div>
-          <label>location</label>
-          <br />
-          <select name="rental-option" id="event_option" required>
-            <option value="">Add a location</option>
-            <option value="in-person-meeting">In-person meeting</option>
-            <option value="call">Phone call</option>
-            <option value="google-meet">Google meet</option>
-            <option value="Zoom-call">Zoom</option>
-          </select>
-        </div>
-        <div>
-          <label>Description/Instructions</label> <br />
-          <input
-            type="text"
-            placeholder="Write a summery..."
-            id="event_description"
-            required
-          />
-        </div>
-        <div>
-          <label>Event link </label> <br />
-          <p id="links">calendly.com/mohimabahadur/</p>
-          <input type="text" id="event_link" />
-        </div>
-        <div id="inputtime">
-          <div>
-            <label>Start meeting time</label>
-            <input
-              type="time"
-              id="starttime"
-              placeholder="Start meeting time"
-            />
-          </div>
-          <div>
-            <label>End meeting time</label>
-            <input type="time" id="endtime" placeholder="End meeting time" />
-          </div>
-        </div>
-        <div id="inputdate">
-          <div>
-            <label>Start Date</label><br />
-            <input type="date" id="startDate" placeholder="Start Date" />
-          </div>
-          <div>
-            <label>Start Date</label><br />
-            <input type="date" id="endDate" placeholder="End Date" />
-          </div>
-        </div>
-        <br />
+  <div id="event_nav">
+    <div>
+      <div>
+        <p>Back</p>
       </div>
 
-      <hr />
+      <div>
+        <h1>Add One-on-One Event Type</h1>
+      </div>
 
-      <div class="next_cancel bot">
+      <div>
+        <p>view live page</p>
+        <p>Share</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="margins" style="border: 2px solid rgb(84, 84, 84)">
+    <div id="eventformtop">
+      <div>
+        <span id="color"></span>
+        <div>
+          <p>What event is this?</p>
+          <p>No location given</p>
+        </div>
+      </div>
+
+      <div class="next_cancel" id="all">
         <p class="cancelbutton">Cancel</p>
         <p class="nextbutton">Next</p>
       </div>
     </div>
-  </body>
-</html>
+    <hr />
 
-<script src="JS/createEvent.js"></script>
+    <div id="event_form">
+      <div>
+        <label>Event name</label>
+        <br />
+        <input type="text" id="event_name" required />
+      </div>
+      <div>
+        <label>location</label>
+        <br />
+        <select name="rental-option" id="event_option" required>
+          <option value="">Add a location</option>
+          <option value="in-person-meeting">In-person meeting</option>
+          <option value="call">Phone call</option>
+          <option value="google-meet">Google meet</option>
+          <option value="Zoom-call">Zoom</option>
+        </select>
+      </div>
+      <div>
+        <label>Description/Instructions</label> <br />
+        <input type="text" placeholder="Write a summery..." id="event_description" required />
+      </div>
+      <div>
+        <label>Event link </label> <br />
+        <p id="links">calendly.com/mohimabahadur/</p>
+        <input type="text" id="event_link" />
+      </div>
+      <div id="inputtime">
+        <div>
+          <label>Start meeting time</label>
+          <input type="time" id="starttime" placeholder="Start meeting time" />
+        </div>
+        <div>
+          <label>End meeting time</label>
+          <input type="time" id="endtime" placeholder="End meeting time" />
+        </div>
+      </div>
+      <div id="inputdate">
+        <div>
+          <label>Start Date</label><br />
+          <input type="date" id="startDate" placeholder="Start Date" />
+        </div>
+        <div>
+          <label>Start Date</label><br />
+          <input type="date" id="endDate" placeholder="End Date" />
+        </div>
+      </div>
+      <br />
+    </div>
+
+    <hr />
+
+    <div class="next_cancel bot">
+      <p class="cancelbutton">Cancel</p>
+      <p class="nextbutton">Next</p>
+    </div>
+  </div>
+
+  <script src="JS/createEvent.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</note>
+
+</html>

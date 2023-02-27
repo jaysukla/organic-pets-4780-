@@ -1,7 +1,13 @@
 input {
   padding-left: 12px !important;
 }
-
+#spinner {
+  display: none;
+  position: fixed;
+  top: 00px;
+  left: 70px;
+  z-index: 999999;
+}
 #event_nav {
   padding: 2rem 0;
   background-color: white;

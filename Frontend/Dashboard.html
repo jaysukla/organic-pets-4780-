@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MyCal : Dashboard</title>
-    <link rel="icon" href="./Images/product/icon_mycal.png" />
-    <link rel="stylesheet" href="CSS/Dashboard.css" />
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyCal : Dashboard</title>
+  <link rel="icon" href="./Images/product/icon_mycal.png" />
+  <link rel="stylesheet" href="CSS/Dashboard.css" />
+</head>
+
+<body>
+  <!--todo--------------------------------------------- <Header> ----------------------------------------------->
+  <header>
+    <div id="spinner">
+      <img style="width: 70px" src="Images/spinner.gif" alt="" />
+    </div>
     <div id="navbar" class="margins">
       <div>
-        <a href="index.html"
-          ><img src="Images/Icons/MyCalBrand.png" alt="logo"
-        /></a>
+        <a href="index.html"><img src="Images/Icons/MyCalBrand.png" alt="logo" /></a>
       </div>
       <div id="linav">
         <ul>
           <li><a href="./index.html">Home</a></li>
           <li><a href="">Availability</a></li>
           <li><a href="">Intregations</a></li>
-          <li>
-            <span class="namecircle"> A</span>
-            <a href="Dashboard.html" id="CollectionName3">Account</a>
-          </li>
         </ul>
       </div>
-      <div id="profile">
-        <span class="namecircle"> M</span>
+      <style>
+        #Logout {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      </style>
+      <div id="Logout">
+        <div class="namecircle">
+          <img style="width: 22px; filter: invert()" src="Images/logout.svg" alt="" />
+        </div>
+        <a href="Dashboard.html" id="CollectionName3">Account</a>
       </div>
     </div>
 
@@ -36,7 +47,9 @@
     <div id="sticky">
       <div id="topnav">
         <p>My Calendly</p>
-        <a href="CreateEvent.html"> <p id="Create">+ Create</p></a>
+        <a href="CreateEvent.html">
+          <p id="Create">+ Create</p>
+        </a>
       </div>
       <div id="botnav">
         <ul>
@@ -47,52 +60,39 @@
         </ul>
       </div>
     </div>
-
-    <div id="topBody" class="margins">
+  </header>
+  <!--todo-------------------------------------------------------------------------------------------->
+  <div id="topBody" class="margins">
+    <div>
+      <p>M</p>
       <div>
-        <p>M</p>
-        <div>
-          <p id="CollectionName">Mohima Bahadur</p>
-          <a href="#"
-            >MyCal.com/<span id="CollectionName2">mohimabahadur</span></a
-          >
-        </div>
-      </div>
-
-      <div>
-        <div><p>+ New Event Type</p></div>
-        <div>
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/126/126472.png"
-            alt=""
-          />
-        </div>
+        <p id="CollectionName">Mohima Bahadur</p>
+        <a href="#">MyCal.com/<span id="CollectionName2">mohimabahadur</span></a>
       </div>
     </div>
 
-    <hr class="margins" />
-
-    <div id="content" class="margins">
-      <h2>You don't have any event types yet.</h2>
-      <p>
-        You'll want to add an event type to allow people to schedule with you.
-      </p>
+    <div>
       <div>
-        <!-- <div id="event_card">
-                <div>
-                    <p>zoom</p>
-                    <img src="https://cdn-icons-png.flaticon.com/512/126/126472.png" alt="">
-                </div>
-
-                <div>
-                    <p>30 mins, One-on-One</p>
-                    <p>View Booking Page</p>
-                </div>
-                <hr>
-                <div id="link"><a href="#">Link</a></div>
-            </div> -->
+        <p>+ New Event Type</p>
+      </div>
+      <div>
+        <img src="https://cdn-icons-png.flaticon.com/512/126/126472.png" alt="" />
       </div>
     </div>
-  </body>
+  </div>
+
+  <hr class="margins" />
+
+  <div id="content" class="margins">
+    <h2>You don't have any event types yet.</h2>
+    <p>
+      You'll want to add an event type to allow people to schedule with you.
+    </p>
+    <div>
+    </div>
+  </div>
+  <script src="JS/Dashboard.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</note>
 </html>
-<script src="JS/Dashboard.js"></script>

@@ -84,10 +84,13 @@ Schlimg4.addEventListener("click", () => {
 });
 let MyAccountBtn = document.getElementById("MyAccountBtn");
 MyAccountBtn.addEventListener("click", () => {
+  spinner.style.display = "block"; //!Spinner
   let user = localStorage.getItem("collecton_name");
   if (user) {
+    spinner.style.display = "none"; //!Spinner
     window.location.href = "./Dashboard.html";
   } else {
+    spinner.style.display = "none"; //!Spinner
     window.location.href = "./loginSignup.html";
   }
 });

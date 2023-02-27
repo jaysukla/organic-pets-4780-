@@ -1,33 +1,34 @@
-window.onscroll = function () {
-  myFunction();
-};
-
 var navbar = document.getElementById("sticky");
 var sticky = navbar.offsetTop;
 let collection = localStorage.getItem("collecton_name");
-let fullnameX = collection.split("@")[0];
-CollectionName.innerHTML = fullnameX;
-CollectionName2.innerHTML = fullnameX;
-CollectionName3.innerHTML = fullnameX;
-console.log(collection);
-function myFunction() {
+window.onscroll = () => {
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky");
   } else {
     navbar.classList.remove("sticky");
   }
-}
+};
+
+let fullnameX = collection.split("@")[0];
+CollectionName.innerHTML = fullnameX;
+CollectionName2.innerHTML = fullnameX;
+CollectionName3.innerHTML =
+  fullnameX + `<p style="font-size: 12px;">(Logout)</p>`;
+console.log(collection);
 
 const create = document.getElementById("Create");
 const event_card = document.querySelector("#content>div");
 
 create.addEventListener("click", () => {
-  window.location.assign("../createevent/create.html");
+  window.location.assign("../create.html");
 });
 
 const allEvents = JSON.parse(localStorage.getItem("testObject"));
 
+fetchdata();
+
 async function fetchdata() {
+  spinner.style.display = "block"; //!Spinner
   try {
     let alldata = await fetch(
       `https://impossible-pear-waistcoat.cyclic.app/allevents`,
@@ -47,10 +48,10 @@ async function fetchdata() {
       console.log(data.Data);
     }
   } catch (err) {
+    spinner.style.display = "none"; //!Spinner
     console.log(err);
   }
 }
-fetchdata();
 
 function renderData(data) {
   event_card.innerHTML = "";
@@ -68,10 +69,13 @@ function renderData(data) {
       let etime = +(ehour + "." + emint);
       let diff = (Math.abs(etime - stime) + "").split(".");
       let mint;
+      if (diff[1] > 60) {
+        diff[1] = 15;
+      }
       if (diff[0] == 0) {
         mint = diff[1] + "mintutes ";
       } else {
-        mint = diff[0] + "hr" + " " + diff[1] + "mintutes ";
+        mint = diff[0] + "hr" + " " + diff[1] + " mintutes ";
       }
       return `
         <div id="event_card">
@@ -81,8 +85,9 @@ function renderData(data) {
                 </div>
 
                 <div>
-                    <p>${mint}, One-on-One</p>
-                    <p>View Booking Page</p>
+                    <p><span style="color:#075cd4">Time Left:</span> ${mint},<br>
+                    <span style="color:#075cd4">Type:</span> One-on-One</p> 
+                    <p><span style="font-size:14px;color:#075cd4">View Booking Data</span></p>
                 </div>
                 <hr>
                 <div id="link"><a href="#">Link</a></div>
@@ -98,24 +103,45 @@ function renderData(data) {
       deletefun(e.target.dataset.id);
     });
   }
+  spinner.style.display = "none"; //!Spinner
 }
 
 async function deletefun(id) {
+  spinner.style.display = "block"; //!Spinner
   try {
     let res = await fetch(
-      `https://long-tan-fossa-belt.cyclic.app/delete/${id}`,
+      `https://impossible-pear-waistcoat.cyclic.app/delete`,
       {
+        method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          collection: collection,
         },
-        method: "DELETE",
+        body: {
+          email: collection,
+          id: id,
+        },
       }
     );
     if (res.ok) {
-      alert("Event Deleted Successfully");
+      spinner.style.display = "none"; //!Spinner
+      swal("Event Deleted Successfully", "Your event has been Deleted", "info");
+    } else {
+      swal("Something Went Wrong", "", "error");
+      spinner.style.display = "none"; //!Spinner
     }
   } catch (err) {
+    spinner.style.display = "none"; //!Spinner
+    swal("Something Went Wrong", "", "error");
     console.log(err);
   }
 }
+let Logout = document.getElementsByClassName("namecircle")[0];
+Logout.addEventListener("click", () => {
+  spinner.style.display = "block"; //!Spinner
+  swal("Logging Out..", "", "info");
+  localStorage.clear();
+  setTimeout(() => {
+    spinner.style.display = "none"; //!Spinner
+    window.location.href = "./index.html";
+  }, 1000);
+});

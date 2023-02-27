@@ -212,6 +212,13 @@ button {
   margin: 20px 0px;
   font-weight: 600;
 }
+#spinner {
+  display: none;
+  position: fixed;
+  top: 50px;
+  z-index: 999999;
+  left: 70px;
+}
 /*! <!----------------------------------------------- < Media Queries > -----------------------------------------------> */
 /*  */
 /*todo ----------------------------Small Screen Sizes -------------------------------- */

@@ -11,12 +11,12 @@
 </head>
 
 <body>
+    <div id="spinner"><img style="width: 70px;" src="Images/spinner.gif" alt=""></div>
     <div class="parent">
         <div class="brand">
             <img src="./Images/product/icon_mycal.png" alt="logo" />
             <p><b> Scheduling made hassle-free</b></p>
             <div id="social">
-                <!-- <i class="fa-brands fa-facebook-f"></i> -->
                 <a href="#"><span>Facebook</span></a>
                 <a href="#"><span>Twitter</span></a>
                 <a href="http://localhost:4500/auth/google/callback" id="google"><span>Google+</span></a>
@@ -30,13 +30,6 @@
                     <label class="abc" for="chk" aria-hidden="true">Sign up</label>
                     <input id="name" class="abc" type="text" name="txt" placeholder="Name" required="" />
                     <input id="email" class="abc" type="email" name="email" placeholder="Email" required="" />
-                    <!-- <input class="abc" type="date" name="DOB" placeholder="DOB" > -->
-                    <!-- <select  class="abc" id="role" required="">
-              <option value="Role"><i>Role</i></option>
-              <option value="Admin">Admin</option>
-              <option value="Explorer">Explorer</option>
-            </select> -->
-                    <!-- <input id="age" class="abc" type="number" name="location" placeholder="age" /> -->
                     <input class="abc" id="password" type="password" name="pswd" placeholder="Password" required="" />
                     <input id="cnfpass" class="abc" type="password" name="confirm pswd" placeholder="Confirm Password"
                         required="" />
@@ -56,8 +49,9 @@
             </div>
         </div>
     </div>
+    <script src="JS/loginsignup.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </note>
 
 </html>
-<script src="JS/loginsignup.js"></script>

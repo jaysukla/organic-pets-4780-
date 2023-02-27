@@ -6,9 +6,18 @@
   --white: white;
   scrollbar-color: #006bff white;
 }
-
+#MyAccBtn {
+  cursor: pointer;
+}
 body {
   overflow-x: hidden;
+}
+#spinner {
+  display: none;
+  position: fixed;
+  top: 50px;
+  left: 70px;
+  z-index: 999999;
 }
 #globe {
   width: 24px;

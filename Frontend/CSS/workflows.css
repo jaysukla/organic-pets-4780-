@@ -13,6 +13,13 @@
 img {
   cursor: pointer;
 }
+#spinner {
+  display: none;
+  position: fixed;
+  top: 50px;
+  left: 70px;
+  z-index: 999999;
+}
 a {
   text-decoration: none !important;
 }
