@@ -34,6 +34,10 @@ They need to go through User Authentication middleware, to perform any interacti
 ![Signup page](https://user-images.githubusercontent.com/112753481/221465101-ad49c085-0be7-4349-aa7a-92bfb864ff71.jpg)
 ![Login](https://user-images.githubusercontent.com/112753481/221465108-166ac75c-34ce-4785-b43e-545c0b8b9796.jpg)
 
+### :large_blue_circle: User Dashboard :- 
+![Dashboard](https://user-images.githubusercontent.com/112753481/221465797-ef26c399-7d1b-433b-9068-2f51e326356e.jpg)
+
+
 ### :large_blue_circle: Create Events Page :-
 ![Create Event](https://user-images.githubusercontent.com/112753481/221465150-7e826a67-da87-4ffa-94ac-df0ba206cbca.jpg)
 ![Create Event 2](https://user-images.githubusercontent.com/112753481/221465155-25d03782-a84d-4f65-81b3-cf6b58977df5.jpg)
