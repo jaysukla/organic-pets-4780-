@@ -43,11 +43,11 @@ They need to go through User Authentication middleware, to perform any interacti
 # Application Guide :=
 
 ### To Create an Event 
-> First Login to your MyCal Account
-> Then Click on Create Button on Dashboard
-> Enter Event Name, Time and Date
-> Click on Next of Create Event.
-> If you have a event already in particular time slot, you will recieve a message "Time Slot Not Available"
+* First Login to your MyCal Account
+* Then Click on Create Button on Dashboard
+* Enter Event Name, Time and Date
+* Click on Next of Create Event.
+* If you have a event already in particular time slot, you will recieve a message "Time Slot Not Available"
 
 
 
