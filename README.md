@@ -29,14 +29,28 @@ They need to go through User Authentication middleware, to perform any interacti
 ### Backend :-
 - Node.js
 - Express.js
-- MongoDB database
 - Sendinblue package
+
+### Database :-
+> MongoDB Atlas
   
 # Features of this Website:-
 - Login & Signup feature.
 - User can create events for particular date & time.
 - User will recieve reminders before the event via email.
 - Workflows feature help in creating a reminder for an event.
+
+# Application Guide :=
+
+### To Create an Event 
+> First Login to your MyCal Account
+> Then Click on Create Button on Dashboard
+> Enter Event Name, Time and Date
+> Click on Next of Create Event.
+> If you have a event already in particular time slot, you will recieve a message "Time Slot Not Available"
+
+
+
 
 ## Here are some screenshots of website.
 
@@ -52,12 +66,10 @@ They need to go through User Authentication middleware, to perform any interacti
 ![Product page](https://user-images.githubusercontent.com/112753481/221465069-ae44c81d-0b89-4e85-a478-975841a5afd1.jpg)
 
 ### :large_blue_circle: Login/Signup Page :-
-![Signup page](https://user-images.githubusercontent.com/112753481/221465101-ad49c085-0be7-4349-aa7a-92bfb864ff71.jpg)
 ![Login](https://user-images.githubusercontent.com/112753481/221465108-166ac75c-34ce-4785-b43e-545c0b8b9796.jpg)
 
 ### :large_blue_circle: User Dashboard :- 
 ![Dashboard](https://user-images.githubusercontent.com/112753481/221465797-ef26c399-7d1b-433b-9068-2f51e326356e.jpg)
-
 
 ### :large_blue_circle: Create Events Page :-
 ![Create Event](https://user-images.githubusercontent.com/112753481/221465150-7e826a67-da87-4ffa-94ac-df0ba206cbca.jpg)
