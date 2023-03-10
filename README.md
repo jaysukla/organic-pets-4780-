@@ -30,6 +30,7 @@ They need to go through User Authentication middleware, to perform any interacti
 - Node.js
 - Express.js
 - Sendinblue package
+- Authentication - JWT, Bcrypt, GoogleAuth
 
 ### Database :-
 > MongoDB Atlas
@@ -40,7 +41,7 @@ They need to go through User Authentication middleware, to perform any interacti
 - User will recieve reminders before the event via email.
 - Workflows feature help in creating a reminder for an event.
 
-# Application Guide :=
+# Application Guide :-
 
 ### To Create an Event 
 * First Login to your MyCal Account
