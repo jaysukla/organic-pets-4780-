@@ -49,6 +49,15 @@ They need to go through User Authentication middleware, to perform any interacti
 * Click on Next of Create Event.
 * If you have a event already in particular time slot, you will recieve a message "Time Slot Not Available"
 
+### Some basic Routes are:
+```
+/register
+/login
+/allevents
+/event/delete/id
+/event/update/id
+```
+
 
 
 
