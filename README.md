@@ -2,7 +2,7 @@
 
 ### ProjectCode - organic-pets-4780-
 
-https://mycal.netlify.app/ --> Clone of Calendly.com
+https://magnificent-creponne-ff3a7e.netlify.app/ --> Clone of Calendly.com
 
 ![MyCalgt](https://user-images.githubusercontent.com/112753481/221043576-4501abd5-d872-4171-b56a-6e27f607fa9a.png)
 
@@ -58,6 +58,13 @@ They need to go through User Authentication middleware, to perform any interacti
 /event/delete/id
 /event/update/id
 ```
+
+### Team Members of the Project :- 
+- Jay Shukla
+- Kunal Mehra
+- Mohima Bahadur
+- Punit Juneja
+- Sitanshu Mandal
 
 
 
