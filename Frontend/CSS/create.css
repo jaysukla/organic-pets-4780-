@@ -8,6 +8,11 @@ input {
   left: 70px;
   z-index: 999999;
 }
+.swal-text {
+  padding: 12px !important;
+  background-color: azure !important;
+  color: black !important;
+}
 #event_nav {
   padding: 2rem 0;
   background-color: white;
@@ -101,14 +106,28 @@ label {
 }
 #event_form input,
 select {
-  width: 45%;
-  padding: 1% 0;
+  font-size: 17px;
+  font-weight: 300;
+  width: 90%;
+  padding: 10px 15px;
   border-radius: 10px;
   margin-top: 0.2rem;
-  border: 1px solid #cccccc9d;
+
+  border: 1px solid #a5a0a09d;
+}
+#event_form option {
+  line-height: 82px !important;
+}
+#starttime,
+#endtime {
+  font-size: 17px;
+  font-weight: 300;
+  width: 90% !important;
 }
 #event_form input::placeholder,
 #event_form select::placeholder {
+  font-size: 17px;
+  font-weight: 300;
   padding: 0 2%;
 }
 #event_form #event_description {
@@ -116,25 +135,77 @@ select {
 }
 #event_form #inputtime,
 #event_form #inputdate {
-  width: 47%;
+  width: 95%;
   display: flex;
+  font-size: 17px;
+  font-weight: 300;
   justify-content: space-between;
   margin-bottom: 2%;
+}
+#event_color {
+  width: 40%;
+  font-size: 17px;
+  font-weight: 300;
+}
+.ballsY {
+  font-size: 28px !important;
 }
 #event_form #inputdate > div,
 #event_form #inputtime > div {
   width: 100%;
 }
-#event_form #inputdate > div input,
-#event_form #inputtime > div input {
+#event_form #inputdate input,
+#event_form select #event_form #inputtime input {
   width: 90%;
   border-radius: 5px;
-  padding: 4% 0;
+  padding: 7px 15px !important;
 }
 .cancelbutton {
   cursor: pointer;
 }
+.ShowDetails {
+  width: 50%;
+  min-height: 200px;
+  padding: 20px;
+}
 
+.FlexEvent {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+.ShowTexters {
+  font-weight: 400;
+}
+#event_form {
+  width: 50%;
+}
+.GridShowDetails {
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.GridShowDetails label {
+  overflow-x: hidden;
+}
+.GridShowDetails hr {
+  border: 1px solid #fce8e8;
+}
+#CancelButtonW,
+#NextButtonW {
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  padding: 10px 25px !important;
+  width: auto !important;
+}
+
+#NextButtonW:hover {
+  background-color: #4764f5;
+}
 @media screen and (min-width: 1085px) and (max-width: 1200px) {
 }
 
@@ -197,7 +268,7 @@ select {
   select {
     width: 60%;
     margin-bottom: 1rem;
-    padding: 0.7rem;
+    padding: 7px 20px;
   }
   #event_form #event_description {
     padding-bottom: 20%;

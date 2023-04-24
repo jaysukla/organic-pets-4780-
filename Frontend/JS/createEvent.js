@@ -1,3 +1,5 @@
+let EventBaseURL = `https://my-cal-com-backend.vercel.app`
+
 var navbar = document.getElementById("event_nav");
 var sticky = navbar.offsetTop;
 window.onscroll = function () {
@@ -8,93 +10,157 @@ window.onscroll = function () {
   }
 };
 const cancelbutton = document.querySelectorAll(".cancelbutton");
-const nextbuttons = document.querySelectorAll(".nextbutton");
-const event_name = document.getElementById("event_name");
-const event_option = document.getElementById("event_option");
-const event_description = document.getElementById("event_description");
-const event_linkevent_link = document.getElementById("event_link");
-const startdate = document.getElementById("startDate");
-const endDate = document.getElementById("endDate");
-let collection = localStorage.getItem("collecton_name");
-let fullnameX = collection.split("@")[0];
 
-CollectionName3.innerHTML =
+let UserEmail = localStorage.getItem("useremail");
+let UserName = localStorage.getItem("username");
+let fullnameX = UserEmail.split("@")[0];
+
+UserShow3.innerHTML =
   fullnameX + `<p style="font-size: 12px;">(Logout)</p>`;
-console.log(collection);
+console.log(UserEmail);//!-->Consoling current user Email
 
-for (let i = 0; i < nextbuttons.length; i++) {
-  nextbuttons[i].addEventListener("click", async () => {
-    spinner.style.display = "block"; //!Spinner
-    let obj = {
-      title: event_name.value,
-      starttime: endtimeAmPm(starttime),
-      endtime: endtimeAmPm(endtime),
-      startdate: startdate.value,
-      enddate: endDate.value,
-      event_option: event_option.value,
-      discription: event_description.value,
-      event_link: event_link.value,
-    };
+let EventForm = document.getElementById("EventForm")
 
-    let event_data = await fetch(
-      "https://impossible-pear-waistcoat.cyclic.app/newevent",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          collection: collection,
-        },
-        body: JSON.stringify(obj),
-      }
-    );
+EventForm.addEventListener("submit", (e) => {
+  e.preventDefault()
+  let title = EventForm.event_name.value
+  let place = EventForm.event_option.value
+  let startTime = EventForm.starttime.value
+  let color = EventForm.event_color.value
+  let endTime = EventForm.endtime.value
+  let startDate = EventForm.startDate.value
+  let endDate = EventForm.endDate.valu
+  let event_link = `${UserName.split(" ").join("-")}/${EventForm.event_link.value.split(" ").join("-")}`
+  let description = EventForm.event_description.value
+  let createdOn = new Date().toISOString().split(".")[0]
 
-    let ev = await event_data.json();
-    console.log(ev);
-    if (ev.msg == "TIME sLOT IS NOT AVAILABLE") {
-      spinner.style.display = "none"; //!Spinner
-      swal("Time Slot Not Available", "Please select any other time.", "info");
-      return;
-    }
-    if (event_data.ok) {
-      spinner.style.display = "none"; //!Spinner
+  let start = startDate + "T" + startTime + ":00"
+  let end = endDate + "T" + endTime + ":00"
+
+  let startValue = +start.split(/\T|\-|\:/).join("")
+  let endValue = +end.split(/\T|\-|\:/).join("")
+  let createValue = +createdOn.split(/\T|\-|\:/).join("")
+
+  if (startTime >= endTime && endDate <= startDate) {
+    swal("Event Start time cannot\n be after endtime", "Please select any other time", "info");
+    return
+  }
+  if (startDate > endDate) {
+    swal("Start date cannot\n be after End Date", "Please choose correct date", "info");
+    return
+  }
+  if (startValue < createValue) {
+    swal("Event cannot be created on any past date!", "Please select any other date", "warning");
+    return
+  }
+  let event = { userEmail: UserEmail, title, place, start, color, end, event_link, description, createdOn }
+  console.log(event);
+  CreateEvent(event)
+})
+
+
+
+async function CreateEvent(event) {
+  try {
+    let response = await fetch(`${EventBaseURL}/events/newevent`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        UserEmail: UserEmail,
+      },
+      body: JSON.stringify(event)
+    })
+    let Event = await response.json();
+    if (Event.Created) {
       swal("Event Created!", "Your Event has been Scheduled.", "success");
-      window.location.assign("./Dashboard.html");
+      setTimeout(() => {
+
+        window.location.href = "./Dashboard.html";
+      }, 2000);
+      return;
     } else {
-      spinner.style.display = "none"; //!Spinner
-      swal("Bad Request!", "Something was wrong", "error");
-      // alert("Bad request has been made");
+      let overLappTitle = Event.OverlappingEvent.title
+      let overLapStart = Event.OverlappingEvent.start
+      let overLapEnd = Event.OverlappingEvent.end
+      swal("Event Cannot Be Created Created!", `Over-Lapping Event Name :-
+      ${overLappTitle} 
+      Starts: ${overLapStart}
+      Ends: ${overLapEnd}\n 
+      Please Readjust date & time to create this event`, "warning");
     }
-    localStorage.setItem("testObject", JSON.stringify(obj));
-    setTimeout(() => {
-      spinner.style.display = "none"; //!Spinner
-      window.location.assign("./Dashboard.html");
-    }, 500);
-  });
+  } catch (error) {
+    swal("Server Error", `${error}`, "info");
+    console.log(error)
+  }
 }
 for (let i = 0; i < cancelbutton.length; i++) {
   cancelbutton[i].addEventListener("click", async () => {
     spinner.style.display = "none"; //!Spinner
-    window.location.assign("./Dashboard.html");
+    swal({
+      title: "Cancel Creating Event?",
+      text: "",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          window.location.assign("./Dashboard.html");
+        } else {
+          null
+        }
+      });
+
   });
 }
 
-function endtimeAmPm(time) {
-  spinner.style.display = "block"; //!Spinner
-  let hours = time.value.split(":")[0];
-  let mint = time.value.split(":")[1];
-  let suffix = hours >= 12 ? "PM" : "AM";
-  hours = hours % 12 || 12;
 
-  spinner.style.display = "none"; //!Spinner
+//? <!----------------------------------------------- < Event Instantaneous Date register> ----------------------------------------------->
 
-  return `${hours}:${mint} ${suffix}`;
-}
+EventForm.event_name.addEventListener("input", (e) => {
 
-event_name.addEventListener("input", (e) => {
-  event_linkevent_link.value = e.target.value;
+
+  EventForm.event_link.value = e.target.value.split(" ").join("-");
   let links = document.getElementById("links");
-  links.innerText = `mycal.com/mohimabahadur/${e.target.value}`;
+  showname.innerText = EventForm.event_link.value
+  let createdOn = new Date().toISOString().split(".")[0].split("T")[0]
+
+  let link = `mycal.com/${UserName}/${e.target.value}`;
+  links.innerText = link
+  showlinks.innerText = link
+  showcreatedon.innerText = createdOn
 });
+EventForm.event_option.addEventListener("change", (e) => {
+  showlocation.innerText = e.target.value
+})
+EventForm.starttime.addEventListener("change", (e) => {
+  showstarttime.innerText = e.target.value
+})
+EventForm.event_color.addEventListener("change", (e) => {
+  showcolor.innerText = e.target.value
+})
+EventForm.endtime.addEventListener("change", (e) => {
+  showendtime.innerText = e.target.value
+})
+EventForm.startDate.addEventListener("change", (e) => {
+  showstartdate.innerText = e.target.value
+})
+EventForm.endDate.addEventListener("change", (e) => {
+  showenddate.innerText = e.target.value
+})
+EventForm.event_link.addEventListener("input", (e) => {
+  let link = `mycal.com/${UserName}/${e.target.value}`;
+  links.innerText = link
+  showlinks.innerText = link
+})
+EventForm.event_description.addEventListener("input", (e) => {
+  showdesp.innerText = e.target.value
+})
+
+
+
+
+//? <!----------------------------------------------- < Logout> ----------------------------------------------->
 
 let Logout = document.getElementsByClassName("namecircle")[0];
 Logout.addEventListener("click", () => {

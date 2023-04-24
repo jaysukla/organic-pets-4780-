@@ -1,27 +1,20 @@
-const passport = require("passport");
+const passport = require("passport")
 require("dotenv").config();
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const GOOGLE_CLIENT_ID =
-  "782261569311-cmpa31fmtbt8f2e3kh8n9nosl5dfgaae.apps.googleusercontent.com";
-const GOOGLE_CLIENT_SECRET = "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";
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: GOOGLE_CLIENT_ID,
-      clientSecret: GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:4500/auth/google/callback",
-      scope: ["profile", "email"],
-    },
-    function (accessToken, refreshToken, profile, cb) {
-      // User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      // console.log(profile);
-      console.log(accessToken, profile);
-      return cb(null, profile);
-      // });
-    }
-  )
-);
+const GoogleStrategy = require("passport-google-oauth2").Strategy
 
-module.exports = passport;
+passport.serializeUser((user, done) => {
+  done(null, user);
+})
+passport.deserializeUser(function (user, done) {
+  done(null, user);
+});
 
-//http://localhost:4500/auth/google
+passport.use(new GoogleStrategy({
+  clientID: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  callbackURL: "https://my-cal-com-backend.vercel.app/google/callback",
+  passReqToCallback: true
+}, (request, accessToken, refrestToken, profile, done) => {
+  // console.log(profile);//! -------> Consoling profile in server
+  return done(null, profile)
+}))

@@ -9,6 +9,7 @@
   <link rel="icon" href="./Images/product/icon_mycal.png" />
   <link rel="stylesheet" href="CSS/notifyBeforePage.css" />
   <link rel="stylesheet" href="CSS/Dashboard.css" />
+  <link rel="stylesheet" href="CSS/common.css" />
 </head>
 
 <body>
@@ -18,27 +19,20 @@
   </div>
   <div id="navbar" class="margins">
     <div>
-      <a href="index.html"><img src="Images/Icons/MyCalBrand.png" alt="logo" /></a>
+      <a href="Dashboard.html"><img src="Images/Icons/MyCalBrand.png" alt="logo" /></a>
     </div>
     <div id="linav">
       <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="">Availability</a></li>
-        <li><a href="">Intregations</a></li>
+        <li><a href="./Dashboard.html">Home</a></li>
+        <li><a href="calendar.html">My Calendar</a></li>
+        <li><a href="Dashboard.html">Availability</a></li>
       </ul>
     </div>
-    <style>
-      #Logout {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    </style>
     <div id="Logout">
       <div class="namecircle">
         <img style="width: 22px; filter: invert()" src="Images/logout.svg" alt="" />
       </div>
-      <a href="Dashboard.html" id="CollectionName3">Account</a>
+      <a href="Dashboard.html" id="UserShow3">Account</a>
     </div>
   </div>
   <hr style="border: 1px solid rgba(128, 128, 128, 0.158)" />
@@ -51,10 +45,10 @@
     </div>
     <div id="botnav">
       <ul>
-        <li><a href="">Event Types</a></li>
-        <li><a href="">Schedule Event </a></li>
+        <li><a href="Dashboard.html">Event Types</a></li>
+        <li><a href="Dashboard.html">Schedule Event </a></li>
         <li><a href="NotifyBeforePage.html">Workflows</a></li>
-        <li><a href="">Routing Forms</a></li>
+        <li><a href="calendar.html">My Calendar</a></li>
       </ul>
     </div>
   </div>
@@ -76,12 +70,12 @@
       </div>
       <div id="beforetimeDiv">
         <label for="">When this happens</label><br />
-        <input id="beforeTimeValue" type="number" placeholder="enter value" />
-        <select name="" id="beforeTimeUnit">
-          <option value="min">min</option>
+        <input id="beforeTimeValue" type="number" min="1" max="100000" placeholder="Enter value" required/>
+        <select name="" id="beforeTimeUnit" required>
+          <option value="min">minutes</option>
           <option value="hour">hour</option>
         </select>
-        <label>before event starts</label>
+        <label > : before event starts</label>
       </div>
       <h2 style="margin-top: 30px">Edit: Email to host</h2>
       <div id="subject">

@@ -1,35 +1,35 @@
+let EventBaseURL = "https://my-cal-com-backend.vercel.app"
+
 let schduledDateTime = "";
 let userMail = "";
-let collection = localStorage.getItem("collecton_name");
-let fullnameX = collection.split("@")[0];
-CollectionName3.innerHTML =
+let UserEmail = localStorage.getItem("useremail");
+let UserName = localStorage.getItem("username") || UserEmail.split("@")[0] || "User"
+
+let fullnameX = UserEmail.split("@")[0];
+UserShow3.innerHTML =
   fullnameX + `<p style="font-size: 12px;">(Logout)</p>`;
-console.log(collection);
+console.log(UserEmail);
 
 async function getData() {
   spinner.style.display = "block"; //!Spinner
-  let data = await fetch(
-    "https://impossible-pear-waistcoat.cyclic.app/allevents",
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        collection: collection,
-      },
+  let response = await fetch(`${EventBaseURL}/events/allevents?userEmail=${UserEmail}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
     }
-  );
-  data = await data.json();
-  showEvents(data.Data);
+  })
+  let data = await response.json();
+  showEvents(data.AllEvents);
+
 }
 getData();
 
 //? <!----------------------------------------------- < Appending data in select tag> ----------------------------------------------->
 
 function showEvents(data) {
-  console.log(data);
   let userEvents = document.querySelector("#userEvents");
   data.forEach((element) => {
-    console.log(element);
+
     let option = document.createElement("Option");
     option.value = JSON.stringify(element);
     option.innerText = element.title;
@@ -51,71 +51,66 @@ userEvents.addEventListener("change", () => {
   }
 });
 
-function changeSubjectandBody(data) {
+function changeSubjectandBody(event) {
+  localStorage.setItem("WorkFlowEvent", JSON.stringify(event))
   spinner.style.display = "block"; //!Spinner
-  console.log(data);
+
   let subjectText = document.querySelector("#subjectText");
   let bodyText = document.querySelector("#bodyText");
 
-  subjectText.innerText = `Reminder: ${data.title} is at ${data.starttime} on ${data.startdate}`;
-  bodyText.textContent = `Hi ${collection.split("@")[0]}, 
+  let start = event.start.split("T")
 
-This is a friendly reminder that your ${data.title} is at ${
-    data.starttime
-  } on ${data.startdate}`;
+  subjectText.innerText = `Reminder: ${event.title} is at ${start[1]} on ${start[0]}`;
+  bodyText.textContent = `Hi ${UserName}, 
 
-  // changing format for geting the difference between two DateTime
+  This is a friendly reminder that your ${event.title} is at ${start[1]} on ${start[0]}`;
 
-  let start_time = data.starttime.split(" ");
+  let start_time = event.starttime.split(" ");
   start_time = start_time[0] + ":" + start_time[1];
 
-  schduledDateTime = data.startdate + ":" + start_time;
+  schduledDateTime = event.startdate + ":" + start_time;
 
-  userMail = collection;
+  userMail = UserEmail;
   spinner.style.display = "none"; //!Spinner
 }
 
 //? <!----------------------------------------------- < Getting data from form> ----------------------------------------------->
 
-let form = document.querySelector("form");
-form.addEventListener("submit", (event) => {
+let SendMailForm = document.querySelector("form");
+SendMailForm.addEventListener("submit", (e) => {
+  e.preventDefault();
   spinner.style.display = "block"; //!Spinner
-  event.preventDefault();
-  // let workflowName = form.name.value;
-  // let userEventsData = JSON.parse(form.userEvents.value);
-  let beforeTimeValue = form.beforeTimeValue.value;
-  let beforeTimeUnit = form.beforeTimeUnit.value;
-  let subjectText = form.subjectText.value;
-  let bodyText = form.bodyText.value;
-  let timeinSec = 0;
-  if (beforeTimeUnit == "min") {
-    timeinSec = beforeTimeValue * 60;
-  } else {
-    timeinSec = beforeTimeValue * 60 * 60;
-  }
-  sendMail(timeinSec, subjectText, bodyText);
+
+  let event = JSON.parse(localStorage.getItem("WorkFlowEvent"))
+
+  event.TwValue = SendMailForm.beforeTimeValue.value || 30;
+  event.TwUnit = SendMailForm.beforeTimeUnit.value;
+  event.TwSub = SendMailForm.subjectText.value;
+  event.TwBody = SendMailForm.bodyText.value;
+
+  console.log(event);
+  FetchMailing(event);
 });
-async function sendMail(timeinSec, subject, body) {
+
+
+
+
+async function FetchMailing(details) {
   spinner.style.display = "block"; //!Spinner
   console.log(userMail);
-  let mailStatus = await fetch(
-    `https://fierce-shoulder-pads-deer.cyclic.app/workflow/notifyhost/${timeinSec}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        subject,
-        body,
-        schduledDateTime,
-        userMail,
-      }),
-    }
+  let SendingMail = await fetch(`${EventBaseURL}/workflow/create`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(details),
+  }
   );
-  if (mailStatus.status == 200) {
-    spinner.style.display = "none"; //!Spinner
-    swal("Your Workflow has been Scheduled", "", "success");
+  if (SendingMail.status == 200) {
+    setTimeout(() => {
+      spinner.style.display = "none"; //!Spinner
+      swal("Your Workflow has been Scheduled", "", "success");
+    }, 2000);
   } else {
     spinner.style.display = "none"; //!Spinner
     swal("Pleas select correct Time & Event", "", "info");
@@ -130,8 +125,4 @@ Logout.addEventListener("click", () => {
     spinner.style.display = "none"; //!Spinner
     window.location.href = "./index.html";
   }, 1000);
-});
-let backbtn = document.querySelector("#event_nav > div > div:nth-child(1) > p");
-backbtn.addEventListener("click", () => {
-  window.location.href = "Dashboard.html";
 });

@@ -10,14 +10,33 @@
   display: flex;
   align-items: center;
 }
+.colorHR {
+  border: none;
+  position: absolute;
+  height: 100%;
+  width: 11px;
+  top: 0px;
+  left: 0;
+  opacity: 0.7;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+:root {
+  --BlueColor: #0069ff;
+}
 body {
-  margin-bottom: 100px;
+  margin-bottom: 200px !important;
 }
 img {
   cursor: pointer;
 }
 a {
   text-decoration: none !important;
+}
+#Avatarimg {
+  margin: 15px;
+  width: 90px;
+  border-radius: 50%;
 }
 .margins {
   width: 80%;
@@ -72,7 +91,10 @@ a {
   display: none;
 }
 /* ----------------top nav----------------- */
-
+.swal-button--cancel {
+  background: grey !important;
+  color: white !important;
+}
 #topnav {
   width: 80%;
   display: flex;
@@ -108,14 +130,20 @@ a {
 }
 
 /* ------------------body--------------- */
-
+.createandcal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
 #sticky {
+  z-index: 4;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 20px -20px;
   padding-bottom: 1.5rem;
   background-color: white;
 }
 #topBody {
-  margin-top: 7%;
+  margin-top: 4%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 1%;
@@ -152,6 +180,7 @@ a {
 
 #topBody > div:nth-child(1) > div > p {
   margin-bottom: 0.3rem;
+  font-size: 23px;
 }
 #spinner {
   display: none;
@@ -175,15 +204,7 @@ a {
 #topBody > div:nth-child(2) > div:nth-child(2) > img {
   width: 100%;
 }
-.swal-button {
-  background-color: #0069ff;
-}
-.swal-button:hover {
-  background-color: #0069ff;
-}
-.swal-icon {
-  filter: saturate(5);
-}
+
 .Deleter {
   background-color: #0069ff;
   padding: 0.7rem 1rem;
@@ -209,23 +230,25 @@ a {
   flex-wrap: wrap;
 }
 #event_card {
+  position: relative;
   width: 30%;
   padding: 1rem;
+  padding-left: 2rem;
   border-radius: 10px;
   margin: 20px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 #event_card img {
-  width: 11%;
+  width: 12%;
 }
 #event_card > div:nth-child(1) > p {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 #event_card > div:nth-child(1) {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 3%;
+  margin-bottom: 0%;
 }
 #event_card > div:nth-child(2) {
   margin: 1rem 0;

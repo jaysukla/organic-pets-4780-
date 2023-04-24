@@ -1,0 +1,31 @@
+.swal-button {
+  background-color: #0069ff !important;
+}
+.swal-button:hover {
+  background-color: #1d79bb !important;
+}
+.swal-modal * {
+  filter: saturate(1) !important;
+}
+.swal-title {
+  color: black !important;
+  font-weight: 500 !important;
+}
+.swal-button {
+  border-radius: 2px !important;
+}
+input {
+  padding: 10px;
+}
+#spaceNav {
+  display: none;
+  width: 100%;
+  z-index: 100000;
+  background-color: red;
+  height: 100px;
+}
+#Logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

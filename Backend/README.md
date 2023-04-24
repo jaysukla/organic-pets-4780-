@@ -1,10 +1,10 @@
-# MyCal.com
+# MyCal.com-Frontend
 
 # Introducing MyCal.com  (Clone of Calendly.com)
 - Link : -https://mycal.netlify.app/ 
 
+- This is the Frontend Repository of MyCal.com,
 - Backend repo here --> https://github.com/KunalMehra075/MyCal.com-Backend/tree/main
-
 
 ![MyCalgt](https://user-images.githubusercontent.com/112753481/221043576-4501abd5-d872-4171-b56a-6e27f607fa9a.png)
 
@@ -55,7 +55,6 @@ GET      /users                   -> Getting All the Users,
 POST     /users/register          -> Register New User (Requires user details in req.body)
 POST     /users/login             -> Login existing user (Requires email and passwords, returns token if login success)
 
-
 Events Routes
 GET      /events/allevents        -> Getting All the Events,
 POST     /events/newevent         -> Create a new Event,
@@ -89,10 +88,8 @@ GET     /google/logout            -> Logging out from the session
 ![Product page](https://user-images.githubusercontent.com/112753481/221465069-ae44c81d-0b89-4e85-a478-975841a5afd1.jpg)
 
 ### :large_blue_circle: Login/Signup Page :-
-
 ![signup](https://user-images.githubusercontent.com/112753481/233952458-6a343629-cd5a-4a92-946d-b633a1a5a057.png)
 ![login](https://user-images.githubusercontent.com/112753481/233952469-9e1ad7c0-5963-4653-97b9-2ed389bbf87f.png)
-
 
 ### :large_blue_circle: Google Auth:-
 ![Googleauth](https://user-images.githubusercontent.com/112753481/233952575-e5138872-988f-4978-a901-8ca9bb6699e8.png)
@@ -107,22 +104,16 @@ GET     /google/logout            -> Logging out from the session
 - Week View
 ![calendarweekview](https://user-images.githubusercontent.com/112753481/233952891-013ac27e-cbad-430c-b3b5-a405dbf01062.png)
 
+
 ### :large_blue_circle: Create Events Page :-
 ![addeventone](https://user-images.githubusercontent.com/112753481/233952962-4da20910-9e4a-427e-988d-05da1e176898.png)
 ![addevent2](https://user-images.githubusercontent.com/112753481/233952975-8fca4b4a-0a5c-494e-a043-48cbf40068dd.png)
+
+
 
 ### :large_blue_circle: Create Workflows Page :-
 
 ## ![Workflows](https://user-images.githubusercontent.com/112753481/221465225-a0c9fe15-73c6-4942-9c0d-9bc5f700f2c3.jpg)
 ![workfflow](https://user-images.githubusercontent.com/112753481/233953000-b734e66d-fbdc-4932-8a7b-b58dfdb4f68b.png)
 
----
-### Team Members of the Project :- 
-- Jay Shukla
-- Kunal Mehra
-- Mohima Bahadur
-- Punit Juneja
-- Sitanshu Mandal
-
----
 ## Thankyou for your Time :raised_hands: 💝 :-

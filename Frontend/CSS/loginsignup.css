@@ -86,7 +86,8 @@ input {
   justify-content: center;
   display: flex;
   margin: 20px auto;
-  padding: 10px;
+  padding: 12px;
+  font-size: 17px;
   border: none;
   outline: none;
   border-radius: 5px;
@@ -127,7 +128,9 @@ button {
   transition: 0.2s ease-in;
   cursor: pointer;
 }
-button:hover {
+input[type="submit"]:hover {
+  color: white;
+  cursor: pointer;
   background: #6d44b8;
 }
 .login {
@@ -185,10 +188,7 @@ button:hover {
   height: 28px;
   padding-top: 12px;
   margin: 0 2px;
-  -o-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  transition: all 0.5s;
+  transition: color 300ms ease-in-out;
   -webkit-font-smoothing: antialiased;
   margin: 10px;
 }
@@ -258,4 +258,44 @@ button:hover {
 }
 #social > a:nth-of-type(4):before {
   content: "\f113";
+}
+#ButtonSubmit,
+#login_button {
+  padding: 9px;
+  font-size: 20px;
+  height: auto;
+  font-weight: 500;
+}
+#socialX {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#socialX > a {
+  color: #000000;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 10px 50px;
+  border-radius: 25px;
+  border: 2px solid transparent;
+  transition: all 300ms ease-in-out;
+  background-color: #f2eeee;
+  margin: 3px;
+}
+#socialX > a:hover {
+  background-color: white;
+  border: 2px solid #9a999d;
+}
+#socialX img {
+  margin-left: 4px;
+}
+#googlebom {
+  transform: translateY(2px);
+}
+#fbbom {
+  transform: translateY(-2px);
 }
