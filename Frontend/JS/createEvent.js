@@ -23,16 +23,16 @@ let EventForm = document.getElementById("EventForm")
 
 EventForm.addEventListener("submit", (e) => {
   e.preventDefault()
-  let title = EventForm.event_name.value
-  let place = EventForm.event_option.value
-  let startTime = EventForm.starttime.value
-  let color = EventForm.event_color.value
-  let endTime = EventForm.endtime.value
-  let startDate = EventForm.startDate.value
-  let endDate = EventForm.endDate.valu
-  let event_link = `${UserName.split(" ").join("-")}/${EventForm.event_link.value.split(" ").join("-")}`
-  let description = EventForm.event_description.value
-  let createdOn = new Date().toISOString().split(".")[0]
+  let title = EventForm.event_name.value;
+  let place = EventForm.event_option.value;
+  let startTime = EventForm.starttime.value;
+  let color = EventForm.event_color.value;
+  let endTime = EventForm.endtime.value;
+  let startDate = EventForm.startDate.value;
+  let endDate = EventForm.endDate.value;
+  let event_link = `${UserName.split(" ").join("-")}/${EventForm.event_link.value.split(" ").join("-")}`;
+  let description = EventForm.event_description.value;
+  let createdOn = new Date().toISOString().split(".")[0];
 
   let start = startDate + "T" + startTime + ":00"
   let end = endDate + "T" + endTime + ":00"
