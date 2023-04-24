@@ -1,7 +1,7 @@
 # MyCal.com
 
 # Introducing MyCal.com  (Clone of Calendly.com)
-- Link : -https://mycal.netlify.app/ 
+- Link : -https://mycal-704.netlify.app/ 
 
 - Backend repo here --> https://github.com/KunalMehra075/MyCal.com-Backend/tree/main
 
