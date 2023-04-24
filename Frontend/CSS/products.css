@@ -12,6 +12,9 @@
 body {
   overflow-x: hidden;
 }
+#NavlinkParent > div:nth-child(1) > a {
+  color: var(--blue);
+}
 #spinner {
   display: none;
   position: fixed;
@@ -49,24 +52,22 @@ body {
   margin: auto;
 }
 #cont1 {
-  width: 90%;
+  width: 80%;
   height: auto;
-  border: 1px solid transparent;
-  display: grid;
-  grid-template-columns: 40% 50%;
-  grid-template-rows: auto;
-  gap: 5%;
-  margin: 70px 180px !important;
+  display: flex;
+  margin: 100px auto;
+  justify-content: space-around;
 }
 #sec-div-1 {
   border: 1px solid transparent;
 }
+
 #take {
-  font-weight: bold;
+  font-weight: 600;
   color: var(--darkblue);
   margin: 0px 0px 32px;
   line-height: 1.3;
-  font-size: 72px;
+  font-size: 64px;
   font-family: "Gilroy-Medium", sans-serif;
   /* font-family:100px Gilroy, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; */
 }
@@ -76,8 +77,6 @@ body {
   font-family: "Gilroy-Bold";
   margin: 0px 0px 32px;
   font-size: 16px;
-  /* font-family:16px Gilroy, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; */
-  /* font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
 }
 #spn {
   color: var(--blue);

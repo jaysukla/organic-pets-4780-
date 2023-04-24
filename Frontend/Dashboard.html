@@ -8,6 +8,7 @@
   <title>MyCal : Dashboard</title>
   <link rel="icon" href="./Images/product/icon_mycal.png" />
   <link rel="stylesheet" href="CSS/Dashboard.css" />
+  <link rel="stylesheet" href="CSS/common.css" />
 </head>
 
 <body>
@@ -23,22 +24,15 @@
       <div id="linav">
         <ul>
           <li><a href="./index.html">Home</a></li>
-          <li><a href="">Availability</a></li>
-          <li><a href="">Intregations</a></li>
+          <li><a href="./Dashboard.html">Availability</a></li>
+          <li><a href="./Dashboard.html">Intregations</a></li>
         </ul>
       </div>
-      <style>
-        #Logout {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-      </style>
-      <div id="Logout">
+       <div id="Logout">
         <div class="namecircle">
           <img style="width: 22px; filter: invert()" src="Images/logout.svg" alt="" />
         </div>
-        <a href="Dashboard.html" id="CollectionName3">Account</a>
+        <a href="Dashboard.html" id="UserShow3">Account</a>
       </div>
     </div>
 
@@ -47,27 +41,35 @@
     <div id="sticky">
       <div id="topnav">
         <p>My Calendly</p>
-        <a href="CreateEvent.html">
-          <p id="Create">+ Create</p>
-        </a>
+     <div  class="createandcal">
+      <a href="CreateEvent.html">
+        <p id="Create">+ Create Event</p>
+      </a>
+      <a href="calendar.html">
+        <p id="Create">My Calendar</p>
+      </a>
+     </div>
       </div>
       <div id="botnav">
         <ul>
-          <li><a href="">Event Types</a></li>
-          <li><a href="">Schedule Event </a></li>
+          <li><a href="Dashboard.html">Event Types</a></li>
+          <li><a href="Dashboard.html">Schedule Event </a></li>
           <li><a href="NotifyBeforePage.html">Workflows</a></li>
-          <li><a href="">Routing Forms</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
         </ul>
       </div>
     </div>
+
   </header>
+
   <!--todo-------------------------------------------------------------------------------------------->
+  <div id="spaceNav"></div>
   <div id="topBody" class="margins">
     <div>
-      <p>M</p>
+      <div><img id="Avatarimg" src="Images/avatar2.png" alt=""></div>
       <div>
-        <p id="CollectionName">Mohima Bahadur</p>
-        <a href="#">MyCal.com/<span id="CollectionName2">mohimabahadur</span></a>
+        <p id="UserShow">Mohima Bahadur</p>
+        <a href="#">MyCal.com/<span id="UserShow2">mohimabahadur</span></a>
       </div>
     </div>
 
@@ -91,8 +93,8 @@
     <div>
     </div>
   </div>
-  <script src="JS/Dashboard.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="JS/Dashboard.js"></script>
 </body>
 </note>
 </html>

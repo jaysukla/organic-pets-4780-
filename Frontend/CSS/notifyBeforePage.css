@@ -46,7 +46,7 @@ input {
   margin-top: 6px;
   color: gray;
   background-color: white;
-  font-size: 15px;
+  font-size: 16px;
 }
 select {
   padding: 10px;
@@ -70,13 +70,20 @@ select {
   border: 1px solid gray;
 }
 #beforetimeDiv > input {
-  width: 120px;
+  width: 170px;
 }
 #beforetimeDiv > select {
-  width: 120px;
+  width: 170px;
 }
 #beforetimeDiv > label:nth-child(5) {
   font-weight: 200;
+}
+#name {
+  border: 2px dotted grey;
+}
+#name:hover,
+#name:focus {
+  border: 2px solid blue;
 }
 #subject {
   margin-top: 10px;
