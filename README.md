@@ -1,10 +1,8 @@
 # MyCal.com
 
 # Introducing MyCal.com  (Clone of Calendly.com)
-- Link : -https://mycal-704.netlify.app/ 
-
-- Backend repo here --> https://github.com/KunalMehra075/MyCal.com-Backend/tree/main
-
+- Deployed WebSite Link = https://mycal-704.netlify.app
+- Deployed Backend URL  = https://my-cal-com-backend.vercel.app
 
 ![MyCalgt](https://user-images.githubusercontent.com/112753481/221043576-4501abd5-d872-4171-b56a-6e27f607fa9a.png)
 
