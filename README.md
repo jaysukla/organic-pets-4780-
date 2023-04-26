@@ -118,9 +118,9 @@ GET     /google/logout            -> Logging out from the session
 ### Team Members of the Project :- 
 - Jay Shukla
 - Kunal Mehra
+- Sitansu Mandal
 - Mohima Bahadur
 - Punit Juneja
-- Sitanshu Mandal
 
 ---
 ## Thankyou for your Time :raised_hands: 💝 :-
