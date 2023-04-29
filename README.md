@@ -46,32 +46,38 @@ They need to go through User Authentication middleware, to perform any interacti
 ---
 
 # Routes :-
+- ### Users Routes
 
-```
-Users Routes
-GET      /users                   -> Getting All the Users,
-POST     /users/register          -> Register New User (Requires user details in req.body)
-POST     /users/login             -> Login existing user (Requires email and passwords, returns token if login success)
+| METHOD | ENDPOINT        | WHAT IT DOES                                                                          |
+| ------ | --------------- | ------------------------------------------------------------------------------------- |
+| GET    | /users          | -> Getting All the Users,                                                             |
+| POST   | /users/register | -> Register New User (Requires user details in req.body)                              |
+| POST   | /users/login    | -> Login existing user (Requires email and passwords, returns token if login success) |
 
+- ### Events Routes
 
-Events Routes
-GET      /events/allevents        -> Getting All the Events,
-POST     /events/newevent         -> Create a new Event,
-DELETE   /events/delete/:id       -> Delete an Event,
-PATCH    /events/update/:id       -> Update an Event,
+| METHOD | ENDPOINT           | WHAT IT DOES                                                         |
+| ------ | ------------------ | -------------------------------------------------------------------- |
+| GET    | /events/allevents  | -> Getting All the Events of the User (From user-email)              |
+| POST   | /events/newevent   | -> Create a new Event (Sends Email on successfull creation of event) |
+| DELETE | /events/delete/:id | -> Delete an Event                                                   |
+| PATCH  | /events/update/:id | -> Update an Event                                                   |
 
-Workflows Routes
-GET      /workflows               -> Getting All Workflows
-POST     /workflows/create        -> Add a Workflow/Reminder
+- ### Workflows Routes
 
-Google Routes
-GET     /google                   -> Initiating Google Auth
-GET     /google/callback          -> Redirect URI
-GET     /google/login             -> Getting User Data after Google Authentication
-GET     /google/logout            -> Logging out from the session
+| METHOD | ENDPOINT          | WHAT IT DOES                                                                 |
+| ------ | ----------------- | ---------------------------------------------------------------------------- |
+| GET    | /workflows        | -> Getting All Workflows of the user, by user email,                         |
+| POST   | /workflows/create | -> Add a Workflow/Reminder (Sends email on successfull creation of workflow) |
 
+- ### Google Routes
 
-```
+| METHOD | ENDPOINT         | WHAT IT DOES                                     |
+| ------ | ---------------- | ------------------------------------------------ |
+| GET    | /google          | -> Initiating Google Auth                        |
+| GET    | /google/callback | -> Redirect URI                                  |
+| GET    | /google/login    | -> Getting User Data after Google Authentication |
+| GET    | /google/logout   | -> Logging out from the session                  |
 
 # 🔷: Here are some screenshots of website :-
 
@@ -92,8 +98,9 @@ GET     /google/logout            -> Logging out from the session
 ![login](https://user-images.githubusercontent.com/112753481/233952469-9e1ad7c0-5963-4653-97b9-2ed389bbf87f.png)
 
 
-### :large_blue_circle: Google Auth:-
-![Googleauth](https://user-images.githubusercontent.com/112753481/233952575-e5138872-988f-4978-a901-8ca9bb6699e8.png)
+### :large_blue_circle: Oauth Success Pages:-
+![AuthSuccess](https://user-images.githubusercontent.com/112753481/235299486-e16c2439-e71b-4748-a1d6-2f10db3a4258.png)
+
 
 
 ### :large_blue_circle: User Dashboard :-
