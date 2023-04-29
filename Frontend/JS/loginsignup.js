@@ -10,7 +10,7 @@ const loginUrl = `${usersUrl}/login`;
 let SignupForm = document.getElementById("SignupForm")
 SignupForm.addEventListener("submit", (e) => {
   e.preventDefault()
-  spinner.style.display = "block"; //!Spinner
+  spinner.style.display = "flex"; //!Spinner
   let password = document.getElementById("password").value;
   let cnf_pass = document.getElementById("cnfpass").value;
   if (password != cnf_pass) {
@@ -27,7 +27,7 @@ SignupForm.addEventListener("submit", (e) => {
 })
 
 async function Postusers(obj) {
-  spinner.style.display = "block"; //!Spinner
+  spinner.style.display = "flex"; //!Spinner
   try {
     const res = await fetch(signinUrl, {
       method: "POST",
@@ -52,7 +52,7 @@ async function Postusers(obj) {
 
 let LoginForm = document.getElementById("LoginForm")
 LoginForm.addEventListener("submit", (e) => {
-  spinner.style.display = "block"; //!Spinner
+  spinner.style.display = "flex"; //!Spinner
   e.preventDefault()
   let loginDetails = {
     email: LoginForm.login_email.value,
@@ -64,7 +64,7 @@ LoginForm.addEventListener("submit", (e) => {
 
 
 let login_user = async (obj) => {
-  spinner.style.display = "block"; //!Spinner
+  spinner.style.display = "flex"; //!Spinner
   let res = await fetch(`${EventBaseURL}/users/login`, {
     method: "POST",
     body: JSON.stringify(obj),

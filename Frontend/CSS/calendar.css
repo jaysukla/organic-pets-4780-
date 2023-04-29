@@ -60,3 +60,26 @@
 .fc ::-webkit-scrollbar {
   display: none;
 }
+/*todo ----------------------------Small Screen Sizes -------------------------------- */
+@media all and (min-width: 200px) and (max-width: 809px) {
+  * {
+    font-size: 11px;
+  }
+  .CalendarHold {
+    padding: 0px !important;
+  }
+  #topnav,
+  #sticky {
+    height: auto !important;
+    flex-direction: column !important;
+  }
+  #botnav {
+    width: 100% !important;
+  }
+  #topnav > p:nth-child(1) {
+    font-size: 11px !important;
+  }
+  #calendar {
+    width: 95%;
+  }
+}

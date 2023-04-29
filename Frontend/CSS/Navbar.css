@@ -180,12 +180,27 @@ nav {
   }
 }
 
-@media all and (min-width: 320px) and (max-width: 809px) {
+@media all and (min-width: 200px) and (max-width: 809px) {
   body {
     overflow-x: hidden;
   }
   section {
     padding: 10px !important;
+  }
+  .footersecond > label,
+  .footerthird > label,
+  .footerthird > b {
+    font-size: 7px;
+  }
+  #SuccessPage {
+    height: 78vh;
+  }
+  .Introduction {
+    margin-top: 15px;
+    white-space: normal;
+  }
+  .lpara1 {
+    font-size: 0.9rem;
   }
   #navclickbtn {
     display: block;
@@ -194,6 +209,39 @@ nav {
   nav {
     padding: 0px !important;
     z-index: 1000;
+  }
+  #TabSelectors > div p {
+    font-size: 15px;
+    text-align: center;
+  }
+  #TabSelectors > div {
+    margin: 0;
+    padding: 0;
+  }
+  .landingbuttons {
+    width: 49%;
+    transition: all 0.2s linear 0s;
+    gap: 8px;
+    font-weight: 600;
+    margin: 5px 3px;
+    padding: 5px 10px;
+    color: rgb(11, 53, 88);
+    cursor: pointer;
+    font-size: 0.625rem;
+  }
+  .SecitonHeadOne {
+    font-size: 1.55rem;
+  }
+  #MyAccountBtn {
+    padding: 7px;
+    font-size: 12px;
+  }
+  #NavBrand img {
+    width: 170px !important;
+  }
+  .Introduction,
+  .Introduction label {
+    font-size: 3.20875rem;
   }
   #Englishtopnav {
     padding: 5px !important;
@@ -247,7 +295,26 @@ nav {
     font-size: 1.7rem;
   }
   #footer {
-    margin-bottom: 10px !important;
+    margin: 5px !important;
+    padding: 5px !important;
+  }
+  .footerRight div {
+    padding: 2px;
+    color: rgb(11, 53, 88);
+    font-size: 7px;
+  }
+  .footereasy label {
+    font-size: 2.36875rem;
+  }
+  .WeMakeSchedule_Chiled > div:nth-child(1) {
+    padding: 15px;
+  }
+  .SchedulingTexts {
+    margin: 9px;
+    padding: 10px;
+  }
+  .WeMakeSchedule_Chiled > div:nth-child(2) {
+    padding: 15px;
   }
 }
 
@@ -284,14 +351,14 @@ nav {
   font-weight: 500;
   color: white;
   border: none;
-  border-radius: 20px;
+  border-radius: 25px;
   background-color: red;
 }
 #LetsGoButton {
-  background-color: rgb(13, 64, 215);
+  background-color: #016bfe;
 }
 #LetsGoButton:hover {
-  background-color: rgb(33, 233, 26);
+  background-color: #014dfe;
 }
 #LetsGoButtonFailed:hover {
   background-color: rgb(250, 89, 60);
@@ -299,7 +366,7 @@ nav {
 #greentickholder {
   width: 400px;
   height: 270px;
-  /* overflow: hidden; */
+  filter: hue-rotate(91deg) saturate(2);
   background-image: url("../Images/greentick2.gif");
   object-position: center;
   object-fit: cover;

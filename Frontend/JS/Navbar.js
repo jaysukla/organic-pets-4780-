@@ -25,3 +25,9 @@ document.addEventListener("click", (e) => {
     navclickbtn.innerHTML = `<svg data-navclose xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30"><path data-navclose d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg>`;
   }
 });
+let GoogleRedirects = document.getElementsByClassName("googleRedirect");
+for (let i = 0; i < GoogleRedirects.length; i++) {
+  GoogleRedirects[i].addEventListener("click", () => {
+    window.location.href = "https://my-cal-com-backend.vercel.app/google"
+  })
+}

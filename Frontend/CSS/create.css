@@ -275,42 +275,64 @@ select {
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 577px) {
-  #event_nav h1 {
-    font-size: 1.2rem;
-    text-align: center;
-  }
-  #event_nav > div > div:nth-child(3),
-  #event_nav > div > div:nth-child(1) {
-    display: none;
+@media screen and (min-width: 200px) and (max-width: 577px) {
+  .FlexEvent {
+    flex-direction: column;
   }
   #eventformtop {
-    /* background-color: #006bff; */
-    margin: auto;
-    text-align: center;
-    justify-content: center;
+    padding: 3px;
   }
-  #color,
-  #all {
-    display: none;
+  #eventformtop > div {
+    width: 50%;
   }
-  #event_form {
-    padding: 2.5rem 1rem;
+  #color {
+    margin: 3px;
+  }
+  .FlexEvent > div {
+    width: 100% !important;
+    margin: 2px !important;
+    padding: 5px !important;
   }
   #event_form input,
-  select {
-    width: 90%;
-    margin-bottom: 1rem;
-    padding: 0.7rem;
+  #event_form select,
+  #event_color {
+    padding: 4px 15px;
+    font-size: 11px;
   }
-  #event_form #event_description {
-    padding-bottom: 20%;
+  #event_nav > div > div:nth-child(2) > h1 {
+    text-align: center;
   }
-  #event_form #inputtime,
-  #event_form #inputdate {
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2%;
+  #event_nav > div > div:nth-child(3) {
+    justify-content: center !important;
+    align-items: center !important;
+    width: fit-content;
+  }
+  #event_description {
+    padding: 3px !important;
+    height: 40px;
+    font-size: 11px !important;
+  }
+  .GridShowDetails {
+    margin: 0px;
+    padding: 10px;
+  }
+  #event_nav > div {
+    width: 100%;
+  }
+  #event_nav {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 3px;
+  }
+
+  .next_cancel {
+    width: 90% !important;
+  }
+  .bot {
+    margin: 4px;
+  }
+  .next_cancel #NextButtonW,
+  .next_cancel #CancelButtonW {
+    padding: 7px 22px;
   }
 }

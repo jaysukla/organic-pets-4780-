@@ -1,8 +1,18 @@
 let EventBaseURL = "https://my-cal-com-backend.vercel.app"
 
+//! IF USER NOT PRESENT ---> 
+let UserEmail = localStorage.getItem("useremail");
+
+if (!UserEmail) {
+  swal("Please Login First!", "You need to login before adding any events..", "info");
+  setTimeout(() => {
+    window.location.href = "loginSignup.html"
+  }, 2000);
+}
+//! ---------------------->
+
 let schduledDateTime = "";
 let userMail = "";
-let UserEmail = localStorage.getItem("useremail");
 let UserName = localStorage.getItem("username") || UserEmail.split("@")[0] || "User"
 
 let fullnameX = UserEmail.split("@")[0];
@@ -11,7 +21,7 @@ UserShow3.innerHTML =
 console.log(UserEmail);
 
 async function getData() {
-  spinner.style.display = "block"; //!Spinner
+  spinner.style.display = "flex"; //!Spinner
   let response = await fetch(`${EventBaseURL}/events/allevents?userEmail=${UserEmail}`, {
     method: "GET",
     headers: {
@@ -42,7 +52,7 @@ function showEvents(data) {
 
 let userEvents = document.querySelector("#userEvents");
 userEvents.addEventListener("change", () => {
-  spinner.style.display = "block"; //!Spinner
+  spinner.style.display = "flex"; //!Spinner
   try {
     let data = JSON.parse(userEvents.value);
     changeSubjectandBody(data);
@@ -53,7 +63,7 @@ userEvents.addEventListener("change", () => {
 
 function changeSubjectandBody(event) {
   localStorage.setItem("WorkFlowEvent", JSON.stringify(event))
-  spinner.style.display = "block"; //!Spinner
+  spinner.style.display = "flex"; //!Spinner
 
   let subjectText = document.querySelector("#subjectText");
   let bodyText = document.querySelector("#bodyText");
@@ -79,7 +89,7 @@ function changeSubjectandBody(event) {
 let SendMailForm = document.querySelector("form");
 SendMailForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  spinner.style.display = "block"; //!Spinner
+  spinner.style.display = "flex"; //!Spinner
 
   let event = JSON.parse(localStorage.getItem("WorkFlowEvent"))
 
@@ -96,7 +106,7 @@ SendMailForm.addEventListener("submit", (e) => {
 
 
 async function FetchMailing(details) {
-  spinner.style.display = "block"; //!Spinner
+  spinner.style.display = "flex"; //!Spinner
   console.log(userMail);
   let SendingMail = await fetch(`${EventBaseURL}/workflow/create`, {
     method: "POST",
@@ -118,11 +128,9 @@ async function FetchMailing(details) {
 }
 let Logout = document.getElementsByClassName("namecircle")[0];
 Logout.addEventListener("click", () => {
-  spinner.style.display = "block"; //!Spinner{
   swal("Logging Out..", "", "info");
   localStorage.clear();
   setTimeout(() => {
-    spinner.style.display = "none"; //!Spinner
     window.location.href = "./index.html";
   }, 1000);
 });
