@@ -223,8 +223,16 @@ button {
 /*  */
 /*todo ----------------------------Small Screen Sizes -------------------------------- */
 @media all and (min-width: 320px) and (max-width: 809px) {
+  * {
+    font-size: 15px;
+  }
+  body,
+  main {
+    overflow-x: hidden;
+  }
+
   section {
-    margin: 100px 0px !important;
+    margin: 40px 0px !important;
   }
   .SecitonHeadOne {
     font-size: 2.1rem !important;
@@ -254,6 +262,7 @@ button {
     gap: 40px !important;
   }
   #TabSelectors {
+    margin: 10px;
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
     gap: 10px;

@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 require("dotenv").config();
-
+// ! USER REGISTER
 userRouter.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
   const User = await Usermodel.findOne({ email: email });
@@ -34,7 +34,7 @@ userRouter.post("/register", async (req, res) => {
     res.json({ Message: `Email is already exists` });
   }
 });
-
+//! USER LOGIN
 userRouter.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -62,6 +62,21 @@ userRouter.post("/login", async (req, res) => {
     res.json({ Err: error });
   }
 });
+//! GET USER BY ID
+userRouter.get('/:id', async (req, res) => {
+  let userID = req.params.id
+  let user = await Usermodel.findOne({ _id: userID });
+  jwt.sign({ user }, process.env.key, (err, token) => {
+    if (token) {
+      res.json({
+        Message: "Login Successful",
+        Wrong: false, token, user,
+      });
+    } else {
+      res.json({ Message: "JWT error", Wrong: true });
+    }
+  });
+})
 
 module.exports = {
   userRouter,

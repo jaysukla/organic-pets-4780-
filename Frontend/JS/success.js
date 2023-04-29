@@ -6,10 +6,43 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 });
 if (params.successId) {
     let id = params.successId.trim().split(`"`)[1];
-    console.log(id);
+    let Auth = params.Auth
+    console.log(params)
+    let container = document.getElementById("SuccessPage")
+    if (Auth == "Facebook") {
+        container.innerHTML = `
+        <div id="greentickholder"></div>
+        <div id="orangegoogle">
+          <div class="SuccessPageButtonsHolder">
+            <img width="180px" src="Images/facebook.png" alt="" />
+            <h1 style="font-size: 30px; font-weight: 500">
+              Authentication Successful
+            </h1>
+            <p>Welcome to Mycal Web Service</p>
+            <br />
+            <button id="LetsGoButton">Go to Home Page</button>
+          </div>
+        </div>        
+        `
+    } else {
+        container.innerHTML = `
+        <div id="greentickholder"></div>
+        <div id="orangegoogle">
+          <div class="SuccessPageButtonsHolder">
+            <img width="150px" src="Images/googlepng.png" alt="" />
+            <h1 style="font-size: 30px; font-weight: 500">
+              Authentication Successful
+            </h1>
+            <p>Welcome to Mycal Web Service</p>
+            <br />
+            <button id="LetsGoButton">Go to Home Page</button>
+          </div>
+        </div>        
+        `
+    }
     let LetsGoButton = document.getElementById("LetsGoButton");
     LetsGoButton.addEventListener("click", () => {
-        GoogleLoginFunction(id);
+        GetUserByID(id);
     });
 
 } else {
@@ -22,15 +55,9 @@ if (params.successId) {
 
     }
 }
-async function GoogleLoginFunction(id) {
+async function GetUserByID(id) {
     try {
-        let res = await fetch(`${EventBaseURL}/google/login`, {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json",
-            },
-            body: JSON.stringify({ userID: id }),
-        });
+        let res = await fetch(`${EventBaseURL}/users/${id}`);
 
         let response = await res.json();
         console.log(response);

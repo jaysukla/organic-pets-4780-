@@ -121,3 +121,25 @@ textarea {
   font-size: 20px;
   border-radius: 40px;
 }
+/*todo ----------------------------Small Screen Sizes -------------------------------- */
+@media all and (min-width: 200px) and (max-width: 809px) {
+  * {
+    font-size: 11px;
+  }
+  #container {
+    padding: 7px;
+    width: 100%;
+  }
+  #container input,
+  #container select,
+  #container textarea {
+    font-size: 12px !important;
+    width: 100% !important;
+  }
+  #WFnameAndSelectDiv {
+    flex-direction: column;
+  }
+  label {
+    font-size: 11px;
+  }
+}

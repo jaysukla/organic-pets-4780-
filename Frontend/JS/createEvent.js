@@ -1,7 +1,25 @@
 let EventBaseURL = `https://my-cal-com-backend.vercel.app`
 
+//! IF USER NOT PRESENT ---> 
+let UserEmail = localStorage.getItem("useremail");
+
+if (!UserEmail) {
+  swal("Please Login First!", "You need to login before adding any events..", "info");
+  setTimeout(() => {
+    window.location.href = "loginSignup.html"
+  }, 2000);
+}
+//! ---------------------->
+
+let fullnameX = UserEmail.split("@")[0];
+let UserName = localStorage.getItem("username");
+
+UserShow3.innerHTML = fullnameX + `<p style="font-size: 12px;">(Logout)</p>`;
+// console.log(UserEmail);//!-->Consoling current user Email
+
 var navbar = document.getElementById("event_nav");
 var sticky = navbar.offsetTop;
+
 window.onscroll = function () {
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky");
@@ -9,30 +27,22 @@ window.onscroll = function () {
     navbar.classList.remove("sticky");
   }
 };
-const cancelbutton = document.querySelectorAll(".cancelbutton");
 
-let UserEmail = localStorage.getItem("useremail");
-let UserName = localStorage.getItem("username");
-let fullnameX = UserEmail.split("@")[0];
-
-UserShow3.innerHTML =
-  fullnameX + `<p style="font-size: 12px;">(Logout)</p>`;
-console.log(UserEmail);//!-->Consoling current user Email
 
 let EventForm = document.getElementById("EventForm")
 
 EventForm.addEventListener("submit", (e) => {
   e.preventDefault()
-  let title = EventForm.event_name.value;
-  let place = EventForm.event_option.value;
-  let startTime = EventForm.starttime.value;
-  let color = EventForm.event_color.value;
-  let endTime = EventForm.endtime.value;
-  let startDate = EventForm.startDate.value;
-  let endDate = EventForm.endDate.value;
-  let event_link = `${UserName.split(" ").join("-")}/${EventForm.event_link.value.split(" ").join("-")}`;
-  let description = EventForm.event_description.value;
-  let createdOn = new Date().toISOString().split(".")[0];
+  let title = EventForm.event_name.value
+  let place = EventForm.event_option.value
+  let startTime = EventForm.starttime.value
+  let color = EventForm.event_color.value
+  let endTime = EventForm.endtime.value
+  let startDate = EventForm.startDate.value
+  let endDate = EventForm.endDate.value
+  let event_link = `${UserName.split(" ").join("-")}/${EventForm.event_link.value.split(" ").join("-")}`
+  let description = EventForm.event_description.value
+  let createdOn = new Date().toISOString().split(".")[0]
 
   let start = startDate + "T" + startTime + ":00"
   let end = endDate + "T" + endTime + ":00"
@@ -93,6 +103,10 @@ async function CreateEvent(event) {
     console.log(error)
   }
 }
+
+
+
+const cancelbutton = document.querySelectorAll(".cancelbutton");
 for (let i = 0; i < cancelbutton.length; i++) {
   cancelbutton[i].addEventListener("click", async () => {
     spinner.style.display = "none"; //!Spinner
@@ -164,11 +178,9 @@ EventForm.event_description.addEventListener("input", (e) => {
 
 let Logout = document.getElementsByClassName("namecircle")[0];
 Logout.addEventListener("click", () => {
-  spinner.style.display = "block"; //!Spinner
   swal("Logging Out..", "", "info");
   localStorage.clear();
   setTimeout(() => {
-    spinner.style.display = "none"; //!Spinner
     window.location.href = "./index.html";
   }, 1000);
 });

@@ -4,6 +4,9 @@ let EventBaseURL = `https://my-cal-com-backend.vercel.app`
 var navbar = document.getElementById("sticky");
 var sticky = navbar.offsetTop;
 let spaceNav = document.getElementById("spaceNav")
+
+
+//! IF USER NOT PRESENT ---> 
 let UserEmail = localStorage.getItem("useremail");
 
 if (!UserEmail) {
@@ -12,6 +15,7 @@ if (!UserEmail) {
     window.location.href = "loginSignup.html"
   }, 2000);
 }
+//! ---------------------->
 
 
 window.onscroll = () => {
@@ -43,7 +47,7 @@ create.addEventListener("click", () => {
 FetchAllUserEvents(UserEmail);
 
 async function FetchAllUserEvents(UserEmail) {
-  spinner.style.display = "block"; //!Spinner
+  spinner.style.display = "flex"; //!Spinner
 
   try {
     let response = await fetch(`${EventBaseURL}/events/allevents?userEmail=${UserEmail}`, {
@@ -117,7 +121,7 @@ function RenderData(data) {
 }
 
 async function DeleteEvent(id) {
-  spinner.style.display = "block"; //!Spinner
+  spinner.style.display = "flex"; //!Spinner
   try {
     let res = await fetch(
       `${EventBaseURL}/events/delete/${id}`, {
@@ -146,11 +150,9 @@ async function DeleteEvent(id) {
 }
 let Logout = document.getElementsByClassName("namecircle")[0];
 Logout.addEventListener("click", () => {
-  spinner.style.display = "block"; //!Spinner
   swal("Logging Out..", "", "info");
   localStorage.clear();
   setTimeout(() => {
-    spinner.style.display = "none"; //!Spinner
     window.location.href = "./index.html";
   }, 1000);
 });
