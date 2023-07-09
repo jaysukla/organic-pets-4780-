@@ -1,6 +1,6 @@
 //? ALL THE PACKAGES
 const { connection } = require("./config/db.js");
-const cookieSession = require("cookie-session")
+const cookieSession = require("cookie-session");
 const passport = require("passport");
 const express = require("express");
 const cors = require("cors");
@@ -13,36 +13,31 @@ const { EventRouter } = require("./routes/event.route.js");
 const { userRouter } = require("./routes/user.route.js");
 const FacebookRouter = require("./routes/FacebookAuth.route.js");
 
-
 const app = express();
-
 
 app.use(express.json());
 
 //? HANDLING CROSS ORIGIN
-app.use(cors({
-  origin: "https://mycal-704.netlify.app",
-  mehtods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Content-Type', "UserEmail", "collection", "Authorization", "Access-Control-Allow-Credentials", "Access-Control-Allow-Origin"],
-  credentials: true
-}));
+app.use(cors());
 
 //? Maintaining Login Session
-app.use(cookieSession({
-  name: 'google-auth-session',
-  keys: ["key1", "key2"],
-}))
+app.use(
+  cookieSession({
+    name: "google-auth-session",
+    keys: ["key1", "key2"],
+  })
+);
 
-//? Passport Middlewares 
-app.use(passport.initialize())
-app.use(passport.session())
+//? Passport Middlewares
+app.use(passport.initialize());
+app.use(passport.session());
 
 //? ROUTES
-app.use("/google", GoogleRouter)
-app.use("/facebook", FacebookRouter)
+app.use("/google", GoogleRouter);
+app.use("/facebook", FacebookRouter);
 app.use("/users", userRouter);
 app.use("/events", EventRouter);
-app.use("/workflow", WorkFlowRouter)
+app.use("/workflow", WorkFlowRouter);
 
 //? BASIC ROUTE
 app.get("/", (req, res) => {
@@ -50,7 +45,7 @@ app.get("/", (req, res) => {
     res.json({ Message: "Welcome to MyCal App" });
   } catch (err) {
     console.log(err);
-    res.json({ Error: err })
+    res.json({ Error: err });
   }
 });
 

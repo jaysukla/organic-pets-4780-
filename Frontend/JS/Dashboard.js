@@ -1,4 +1,4 @@
-let EventBaseURL = `https://my-cal-com-backend.vercel.app`
+let EventBaseURL = `https://expensive-leather-jacket-bass.cyclic.app`;
 
 
 var navbar = document.getElementById("sticky");
@@ -72,7 +72,7 @@ async function FetchAllUserEvents(UserEmail) {
 function RenderData(data) {
   let AllEvents = data.map((item) => {
     let startDate = item.start.split("T")[0].split("-").reverse().join("-")
-    let time = item.end.split("T")[1]
+    let time = item.start.split("T")[1]
     let link = item.event_link.split(" ").join("-")
     return `
       <div id="event_card">

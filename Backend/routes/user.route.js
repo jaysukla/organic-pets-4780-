@@ -21,7 +21,7 @@ userRouter.post("/register", async (req, res) => {
             password: secure_pass,
           });
           await user.save();
-          console.log(user);//!-----> User Created
+          console.log(user); //!-----> User Created
           res.json({ Messsage: `${user.name} has been Registered` });
         }
       });
@@ -49,7 +49,14 @@ userRouter.post("/login", async (req, res) => {
             { userID: user._id },
             process.env.refresh_key
           );
-          res.json({ Message: "Login succesfull", token, refresh_token, name: user.name, email, success: true });
+          res.json({
+            Message: "Login succesfull",
+            token,
+            refresh_token,
+            name: user.name,
+            email,
+            success: true,
+          });
         } else {
           res.json({ Message: "Login failed", success: false });
         }
@@ -63,20 +70,22 @@ userRouter.post("/login", async (req, res) => {
   }
 });
 //! GET USER BY ID
-userRouter.get('/:id', async (req, res) => {
-  let userID = req.params.id
+userRouter.get("/:id", async (req, res) => {
+  let userID = req.params.id;
   let user = await Usermodel.findOne({ _id: userID });
   jwt.sign({ user }, process.env.key, (err, token) => {
     if (token) {
       res.json({
         Message: "Login Successful",
-        Wrong: false, token, user,
+        Wrong: false,
+        token,
+        user,
       });
     } else {
       res.json({ Message: "JWT error", Wrong: true });
     }
   });
-})
+});
 
 module.exports = {
   userRouter,
