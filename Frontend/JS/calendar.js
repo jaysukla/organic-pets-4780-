@@ -1,5 +1,5 @@
 
-let EventBaseURL = `https://my-cal-com-backend.vercel.app`
+let EventBaseURL = `https://expensive-leather-jacket-bass.cyclic.app`;
 
 //! IF USER NOT PRESENT ---> 
 let UserEmail = localStorage.getItem("useremail");
