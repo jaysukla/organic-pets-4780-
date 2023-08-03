@@ -42,10 +42,10 @@ app.use("/workflow", WorkFlowRouter);
 //? BASIC ROUTE
 app.get("/", (req, res) => {
   try {
-    res.json({ Message: "Welcome to MyCal App" });
+    res.send({ Message: "Welcome to MyCal App" });
   } catch (err) {
     console.log(err);
-    res.json({ Error: err });
+    res.send({ Error: err });
   }
 });
 

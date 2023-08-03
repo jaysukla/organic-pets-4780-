@@ -101,24 +101,24 @@ SendMailForm.addEventListener("submit", (e) => {
   event.TwUnit = SendMailForm.beforeTimeUnit.value;
   event.TwSub = SendMailForm.subjectText.value;
   event.TwBody = SendMailForm.bodyText.value;
-  let timeinSec = 0;
+  let timeinMin = 0;
   if (event.TwUnit == "min") {
-    timeinSec = event.TwValue * 60;
+    timeinMin = event.TwValue;
   } else {
-    timeinSec = event.TwValue * 60 * 60;
+    timeinMin = event.TwValue * 60;
   }
   console.log(event);
-  sendMail(event, timeinSec);
+  sendMail(event, timeinMin);
 });
 
-async function sendMail(details, timeinSec) {
+async function sendMail(details, timeinMin) {
   var CurrentDateTime = moment().format("YYYY-MM-DD hh:mm A");
   details.CurrentDateTime = CurrentDateTime;
   console.log(CurrentDateTime, schduledDateTime);
   details.schduledDateTime = schduledDateTime;
   spinner.style.display = "flex"; //!Spinner
   let SendingMail = await fetch(
-    `${EventBaseURL}/workflow/notifyhost/${timeinSec}`,
+    `${EventBaseURL}/workflow/notifyhost/${timeinMin}`,
     {
       method: "POST",
       headers: {
