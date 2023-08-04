@@ -107,16 +107,15 @@ SendMailForm.addEventListener("submit", (e) => {
   } else {
     timeinMin = event.TwValue * 60;
   }
-  console.log(event);
   sendMail(event, timeinMin);
 });
 
 async function sendMail(details, timeinMin) {
   var CurrentDateTime = moment().format("YYYY-MM-DD hh:mm A");
   details.CurrentDateTime = CurrentDateTime;
-  console.log(CurrentDateTime, schduledDateTime);
   details.schduledDateTime = schduledDateTime;
   spinner.style.display = "flex"; //!Spinner
+  console.log(details);
   let SendingMail = await fetch(
     `${EventBaseURL}/workflow/notifyhost/${timeinMin}`,
     {

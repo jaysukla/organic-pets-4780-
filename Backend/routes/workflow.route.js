@@ -67,27 +67,30 @@ WorkFlowRouter.post("/notifyhost/:beforetime", (req, res) => {
   let beforeMin = req.params.beforetime;
   let CurrentDateTime = details.CurrentDateTime;
   let schduledDateTime = details.schduledDateTime;
+  // console.log(details);
 
-  const job = schedule.scheduleJob("reminder", "* * * * *", async () => {
-    const currentTime = moment(CurrentDateTime, "YYYY-MM-DD hh:mm A");
-    const eventTime = moment(schduledDateTime, "YYYY-MM-DD hh:mm A");
-    const remainingMinutes = moment
-      .duration(eventTime.diff(currentTime))
-      .asMinutes();
-    console.log(remainingMinutes);
-    // Check if it's within the 5-minute window before the event
-    if (remainingMinutes == beforeMin) {
-      const subject = "Your Event Reminder";
-      const text = `Your event is going to happen at ${eventTime.format(
-        "LLLL"
-      )}. Don't forget to attend!`;
-
-      // await sendEmail(userEmail, subject, text);
-      console.log("Email sent successfully");
-      job.cancel(); // Cancel the job after sending the email
-      res.send("test");
-    }
-  });
+  const currentTime = moment(CurrentDateTime, "YYYY-MM-DD hh:mm A");
+  const eventTime = moment(schduledDateTime, "YYYY-MM-DD hh:mm A");
+  let remainingMinutes = moment
+    .duration(eventTime.diff(currentTime))
+    .asMinutes();
+  if (remainingMinutes >= 0) {
+    const job = schedule.scheduleJob("reminder", "* * * * *", async () => {
+      remainingMinutes -= 1;
+      console.log(remainingMinutes, beforeMin);
+      // checking if time is equal / if yes send mail and cancel the job
+      if (remainingMinutes == beforeMin) {
+        const EmailBody = reminderCreatedTemplate(details);
+        sendMail(details.TwSub, EmailBody, details.userEmail);
+        console.log("Email sent successfully");
+        job.cancel();
+      }
+    });
+    res.send({ msg: "workflow schduled" });
+  } else {
+    res.status(400);
+    res.send("The time you selected is not valid.");
+  }
 });
 
 module.exports = { WorkFlowRouter };
