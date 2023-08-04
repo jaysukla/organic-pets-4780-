@@ -1,4 +1,4 @@
-const EventBaseURL = "https://expensive-leather-jacket-bass.cyclic.app";
+const EventBaseURL = "https://mycal-ym4l.onrender.com";
 
 const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
