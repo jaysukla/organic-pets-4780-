@@ -1,7 +1,7 @@
 
 
 
-const EventBaseURL = `https://expensive-leather-jacket-bass.cyclic.app`;
+const EventBaseURL = `https://mycal-ym4l.onrender.com`;
 
 const usersUrl = `${EventBaseURL}/users`;
 const signinUrl = `${usersUrl}/register`;

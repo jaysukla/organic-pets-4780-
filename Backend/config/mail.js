@@ -1,13 +1,13 @@
 require("dotenv").config;
 const nodemailer = require("nodemailer");
 const formData = require("form-data");
-const Mailgun = require("mailgun.js");
-const mailgun = new Mailgun(formData);
-const Mailjet = require("node-mailjet");
-const mailjet = Mailjet.apiConnect(
-  process.env.MJ_APIKEY_PUBLIC,
-  process.env.MJ_APIKEY_PRIVATE
-);
+// const Mailgun = require("mailgun.js");
+// const mailgun = new Mailgun(formData);
+// const Mailjet = require("node-mailjet");
+// const mailjet = Mailjet.apiConnect(
+//   process.env.MJ_APIKEY_PUBLIC,
+//   process.env.MJ_APIKEY_PRIVATE
+// );
 
 const sendMail = async (subject, body, userMail) => {
   // console.log(subject, userMail);

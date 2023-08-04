@@ -1,4 +1,4 @@
-let EventBaseURL = `https://expensive-leather-jacket-bass.cyclic.app`;
+let EventBaseURL = `https://mycal-ym4l.onrender.com`;
 
 //! IF USER NOT PRESENT ---> 
 let UserEmail = localStorage.getItem("useremail");

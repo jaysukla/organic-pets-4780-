@@ -1,4 +1,4 @@
-let EventBaseURL = `https://expensive-leather-jacket-bass.cyclic.app`;
+let EventBaseURL = `https://mycal-ym4l.onrender.com`;
 
 
 var navbar = document.getElementById("sticky");
